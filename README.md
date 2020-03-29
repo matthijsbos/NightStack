@@ -2,9 +2,9 @@
 
 OpenStack cluster in a nightstand built out of old laptops.
 
-![](https://media.giphy.com/media/LqmkkOsAVJaXo3Y4OS/giphy.gif)
+<!-- ![](https://media.giphy.com/media/LqmkkOsAVJaXo3Y4OS/giphy.gif) -->
 
-<!-- ![](https://media.giphy.com/media/idpQH45OkWUMSMWHsc/giphy.gif) -->
+![](https://media.giphy.com/media/idpQH45OkWUMSMWHsc/giphy.gif)
 
 ## Hardware Specifications
 | Name   | Device                           | CPU                          | RAM  | Storage                                 | Networking                                            | Description                                 |
