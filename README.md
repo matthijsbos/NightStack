@@ -6,6 +6,12 @@ Openstack cluster in a nightstand built out of old laptops.
 
 <!-- ![](https://media.giphy.com/media/idpQH45OkWUMSMWHsc/giphy.gif) -->
 
+## Photos
+
+See onedrive album
+
+https://1drv.ms/a/s!Asv2q6XGbXXnjcFvja_AwGJesQhlCg 
+
 ## Front Panel
 
 ### Rapsberry Pi 3 GPIO Header Pin Assignment
