@@ -1,10 +1,12 @@
 # NightStack
 
-OpenStack cluster in a nightstand built out of old laptops.
+OpenStack cluster in a nightstand built out of old laptops, used for experimentation.
 
-<!-- ![](https://media.giphy.com/media/LqmkkOsAVJaXo3Y4OS/giphy.gif) -->
+![](/doc/img/banner.gif)
 
-![](https://media.giphy.com/media/idpQH45OkWUMSMWHsc/giphy.gif)
+## Photos
+
+See onedrive album https://1drv.ms/a/s!Asv2q6XGBXXnjcFvja_AwGJesQhlCg 
 
 ## Hardware Specifications
 | Name   | Device                           | CPU                          | RAM  | Storage                                 | Networking                                            | Description                                 |
@@ -19,11 +21,8 @@ OpenStack cluster in a nightstand built out of old laptops.
 | AP-01  | TP-Link<br/> TL-WR3020 (Ver 1.9) | Atheros AR9331               | 32 MB| 4 MB onboard flash                      | Onboard 100 MBit Ethernet<br>IEEE 802.11b/g/n         | Wi-Fi Access Point                          |
 | SW-01  | Linksys<br/>LGS326               | N.a.                         | N.a. | N.a.                                    | 26x Gigabit Ethernet                                  | Network Switch                              |
 
-## Photos
-
-See onedrive album
-
-https://1drv.ms/a/s!Asv2q6XGBXXnjcFvja_AwGJesQhlCg 
+## Hardware Layout
+![](/doc/img/front-layout.png)
 
 ## Front Panel
 
