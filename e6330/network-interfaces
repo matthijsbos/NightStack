@@ -1,0 +1,34 @@
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+source /etc/network/interfaces.d/*
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# Public network
+auto eno1.20
+iface eno1.20 inet static
+    address 10.88.0.X
+    netmask 255.255.240.0
+    gateway 10.88.0.1
+    vlan-raw-device eno1
+    dns-nameserver 10.88.0.1
+    dns-nameserver 8.8.8.8
+    dns-nameserver 8.8.4.4
+
+# Management network
+auto eno1.30
+iface eno1.30 inet static
+    address 10.88.16.X
+    netmask 255.255.240.0
+    vlan-raw-device eno1
+
+# Storage network
+auto eno1.40
+iface eno1.40 inet static
+    address 10.88.32.X
+    netmask 255.255.240.0
+    vlan-raw-device eno1
+

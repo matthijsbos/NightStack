@@ -1,0 +1,31 @@
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+source /etc/network/interfaces.d/*
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+auto enp3s0.10
+iface enp3s0.10 inet dhcp
+    vlan-raw-device enp3s0
+
+auto enp3s0.20
+iface enp3s0.20 inet static
+    address 10.88.0.1
+    netmask 255.255.240.0
+    vlan-raw-device enp3s0
+
+auto enp3s0.30
+iface enp3s0.30 inet static
+    address 10.88.16.1
+    netmask 255.255.240.0
+    vlan-raw-device enp3s0
+
+auto enp3s0.40
+iface enp3s0.40 inet static
+    address 10.88.32.1
+    netmask 255.255.240.0
+    vlan-raw-device enp3s0
+

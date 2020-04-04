@@ -1,0 +1,31 @@
+config wifi-device  radio0
+	option type     mac80211
+	option channel  11
+	option hwmode	11g
+	option path	'platform/ar933x_wmac'
+	option htmode	HT20
+	option disabled 0
+
+config wifi-iface
+	option device   radio0
+	option network  vlan20
+	option mode     ap
+	option ssid     'Cluster Public'
+	option encryption 'psk'
+	option key 	'MWqe9svNpgIepild7xiv'
+config wifi-iface
+        option device   radio0
+        option network  lan
+        option mode     ap
+        option ssid     'Cluster Management'
+        option encryption psk
+	option key	'RRn7jmCxFcCNor6ETuLL'
+
+config wifi-iface
+        option device   radio0
+        option network  vlan40 
+        option mode     ap
+        option ssid     'Cluster Storage'
+        option encryption psk
+	option key 	't8yt0iUKoJVFAewEsbBG'
+
