@@ -1,28 +1,88 @@
 # NightStack
 
-OpenStack cluster in a nightstand built out of old laptops, used for experimentation.
+OpenStack cluster in a nightstand built out of used laptops, used for experimentation.
 
 ![](/doc/img/banner.gif)
 
-## Photos
+## Objectives
+- Silent
+- Limited power comsumption and heat production
+- Discrete appearance
+- Sufficiently capable performance
+- Portable enough to be carried by single person
+- No high-availability requirements on hardware
 
-See onedrive album https://1drv.ms/a/s!Asv2q6XGBXXnjcFvja_AwGJesQhlCg 
+## Photos
+See OneDrive album https://1drv.ms/a/s!Asv2q6XGbXXnjcFvja_AwGJesQhlCg 
 
 ## Hardware Specifications
-| Name   | Device                           | CPU                          | RAM  | Storage                                 | Networking                                            | Description                                 |
-|--------|----------------------------------|------------------------------|------|-----------------------------------------|-------------------------------------------------------|---------------------------------------------|
-| SRV-01 | Lenovo<br/>ThinkPad Twist s230u  | Intel<br/>Core i5 3317U      | 4 GB | 256 GB SSD (mSATA)                      | Onboard Gigabit Ethernet<br/>USB 3.0 Gigabit Ethernet | OpenStack Control Node                      |
-| SRV-02 | Dell<br/>Inspiron E6330          | Intel<br/>Core i5 3320M      | 8 GB | 60 GB SSD (SATA) <br/>500 GB HDD (SATA) | Onboard Gigabit Ethernet<br/>USB 3.0 Gigabit Ethernet | OpenStack Worker Node                       |
-| SRV-03 | Dell<br/>Inspiron E6330          | Intel<br/>Core i5 3340M      | 8 GB | 60 GB SSD (SATA) <br/>320 GB HDD (SATA) | Onboard Gigabit Ethernet<br/>USB 3.0 Gigabit Ethernet | OpenStack Worker Node                       |
-| SRV-04 | Dell<br/>Inspiron E6330          | Intel<br/>Core i5 3340M      | 8 GB | 60 GB SSD (SATA) <br/>320 GB HDD (SATA) | Onboard Gigabit Ethernet<br/>USB 3.0 Gigabit Ethernet | OpenStack Worker Node                       |
-| SRV-05 | Dell<br/>Inspiron E6330          | Intel<br/>Core i5 3340M      | 8 GB | 60 GB SSD (SATA) <br/>320 GB HDD (SATA) | Onboard Gigabit Ethernet<br/>USB 3.0 Gigabit Ethernet | OpenStack Worker Node                       |
-| SRV-06 | Dell<br/>Inspiron E6330          | Intel<br/>Core i5 3320M      | 8 GB | 60 GB SSD (SATA) <br/>320 GB HDD (SATA) | Onboard Gigabit Ethernet<br/>USB 3.0 Gigabit Ethernet | OpenStack Worker Node                       |
-| RPI-01 | Raspberry Pi 3<br/>Model B       | Broadcom<br/>BCM2837 (ARMv7) | 1 GB | 16 GB SD Card                           | Onboard 100 MBit Ethernet                             | Physical control Node,<br/>WAN Router, DHCP |
-| AP-01  | TP-Link<br/> TL-WR3020 (Ver 1.9) | Atheros AR9331               | 32 MB| 4 MB onboard flash                      | Onboard 100 MBit Ethernet<br>IEEE 802.11b/g/n         | Wi-Fi Access Point                          |
-| SW-01  | Linksys<br/>LGS326               | N.a.                         | N.a. | N.a.                                    | 26x Gigabit Ethernet                                  | Network Switch                              |
+| Name   | Device                       | CPU                       | RAM  | Storage                             | Networking                                               | Description                             |
+|--------|------------------------------|---------------------------|------|-------------------------------------|----------------------------------------------------------|-----------------------------------------|
+| SRV-01 | Lenovo ThinkPad Twist s230u  | Intel Core i5 3317U (x64) | 4 GB | 256 GB SSD (mSATA)                  | 1x Onboard Gigabit Ethernet, 1x USB 3.0 Gigabit Ethernet | OpenStack Control Node                  |
+| SRV-02 | Dell Inspiron E6330          | Intel Core i5 3320M (x64) | 8 GB | 60 GB SSD (SATA)  500 GB HDD (SATA) | 1x Onboard Gigabit Ethernet, 1x USB 3.0 Gigabit Ethernet | OpenStack Worker Node                   |
+| SRV-03 | Dell Inspiron E6330          | Intel Core i5 3340M (x64) | 8 GB | 60 GB SSD (SATA)  320 GB HDD (SATA) | 1x Onboard Gigabit Ethernet, 1x USB 3.0 Gigabit Ethernet | OpenStack Worker Node                   |
+| SRV-04 | Dell Inspiron E6330          | Intel Core i5 3340M (x64) | 8 GB | 60 GB SSD (SATA)  320 GB HDD (SATA) | 1x Onboard Gigabit Ethernet, 1x USB 3.0 Gigabit Ethernet | OpenStack Worker Node                   |
+| SRV-05 | Dell Inspiron E6330          | Intel Core i5 3340M (x64) | 8 GB | 60 GB SSD (SATA)  320 GB HDD (SATA) | 1x Onboard Gigabit Ethernet, 1x USB 3.0 Gigabit Ethernet | OpenStack Worker Node                   |
+| SRV-06 | Dell Inspiron E6330          | Intel Core i5 3320M (x64) | 8 GB | 60 GB SSD (SATA)  320 GB HDD (SATA) | 1x Onboard Gigabit Ethernet, 1x USB 3.0 Gigabit Ethernet | OpenStack Worker Node                   |
+| RPI-01 | Raspberry Pi 3 Model B       | Broadcom BCM2837 (ARMv7)  | 1 GB | 16 GB SD Card                       | 1x Onboard 100 MBit Ethernet                             | Physical control Node, WAN Router, DHCP |
+| AP-01  | TP-Link TL-WR3020 (Ver 1.9)  | Atheros AR9331            | 32 MB| 4 MB onboard flash                  | 1x Onboard 100 MBit Ethernet, IEEE 802.11b/g/n           | Wi-Fi Access Point                      |
+| SW-01  | Linksys LGS326               | N.a.                      | N.a. | N.a.                                | 26x Gigabit Ethernet                                     | Network Switch                          |
 
 ## Hardware Layout
 ![](/doc/img/front-layout.png)
+
+## Network
+
+### Layer 1 - Physical
+| Name   | MAC Address       | Description |
+|--------|-------------------|-------------|
+| SRV-01 | B8:88:E3:E0:98:9D | Onboard LAN |
+| SRV-01 | TODO              | USB LAN     |
+| SRV-02 | E0:DB:55:E1:CD:98 | Onboard LAN |
+| SRV-02 | TODO              | USB LAN     |
+| SRV-03 | B8:CA:3A:D3:2C:3B | Onboard LAN |
+| SRV-03 | TODO              | USB LAN     |
+| SRV-04 | F0:1F:AF:22:3A:55 | Onboard LAN |
+| SRV-04 | TODO              | USB LAN     |
+| SRV-05 | F0:1F:AF:2F:2F:9E | Onboard LAN |
+| SRV-05 | TODO              | USB LAN     |
+| SRV-06 | D4:BE:D9:87:B8:23 | Onboard LAN |
+| SRV-06 | TODO              | USB LAN     |
+| RPI-01 | b8:27:eb:49:b0:4c | Onboard LAN |
+| AP-01  | D4:6E:0E:79:E6:BE | Onboard LAN |
+| SW-01  | 14:91:82:EC:8E:17 | Management  |
+
+### Layer 2 - Virtual LAN
+> Wake-on-Lan (WoL) only works for untagged traffic
+
+| Name       |  VLAN ID | Description       |
+|------------|---------:|-------------------|
+| Management | Untagged |                   |
+| Disabled   |        1 |                   |
+| WAN        |       10 |                   |
+| Public     |       20 |                   |
+| Storage    |       40 |                   |
+| Tenant     |   1000+n | n tenant networks |
+
+### Layer 3 - Subnets
+| Name       |    CIDR Block |   Subnet Mask |   Host min |     Host Max | Host count |
+|------------|--------------:|--------------:|-----------:|-------------:|-----------:|
+| Public     |  10.88.0.0/20 | 255.255.240.0 |  10.88.0.1 | 10.88.15.254 |       4094 |
+| Management | 10.88.16.0/20 | 255.255.240.0 | 10.88.16.1 | 10.88.31.254 |       4094 |
+| Storage    | 10.88.32.0/20 | 255.255.240.0 | 10.88.32.1 | 10.88.47.254 |       4094 |
+
+### Layer 3 - Subnet Segments
+| Name                      | Address from |   Address to |
+|---------------------------|-------------:|-------------:|
+| Public - Static lease     |    10.88.0.1 |  10.88.0.254 |
+| Public - floating ips     |    10.88.1.1 |  10.88.1.254 |
+| Public - DHCP             |   10.88.15.1 | 10.88.15.254 |
+| Management - Static lease |   10.88.16.1 | 10.88.16.254 |
+| Management - DHCP         |   10.88.31.1 | 10.88.31.254 |
+| Storage - Static lease    |   10.88.32.1 | 10.88.32.254 |
+| Storage - DHCP            |   10.88.47.1 | 10.88.47.254 |
+
+
 
 ## Front Panel
 
