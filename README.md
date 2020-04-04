@@ -31,10 +31,10 @@ See OneDrive album https://1drv.ms/a/s!Asv2q6XGbXXnjcFvja_AwGJesQhlCg
 | SW-01  | Linksys LGS326               | N.a.                      | N.a. | N.a.                                | 26x Gigabit Ethernet                                     | Network Switch                          |
 
 ### Hardware Documentation
-| Name                           |  Uri                                                                                                        |
-|--------------------------------|-------------------------------------------------------------------------------------------------------------|
-| Dell E6330 electrical diagrams | http://www.s-manuals.com/pdf/motherboard/compal/compal_la-7741p_r0.1_schematics.pdf                         |
-| Linksys LGS326 manual          | https://usermanual.wiki/Linksys/ManLgs308Lgs318Lgs326Lgs308PLgs318PLgs326P882001844Revb01En.1664450959/view |
+| Name                           |  Uri                                                                                                                                                                       |
+|--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Dell E6330 electrical diagrams | [compal_la-7741p_r0.1_schematics.pdf](http://www.s-manuals.com/pdf/motherboard/compal/compal_la-7741p_r0.1_schematics.pdf)                                                 |
+| Linksys LGS326 manual          | [ManLgs308Lgs318Lgs326Lgs308PLgs318PLgs326P882001844Revb01En](https://usermanual.wiki/Linksys/ManLgs308Lgs318Lgs326Lgs308PLgs318PLgs326P882001844Revb01En.1664450959/view) |
 
 ### Hardware Layout
 ![](/doc/img/front-layout.png)
