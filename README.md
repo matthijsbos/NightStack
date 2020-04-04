@@ -41,7 +41,7 @@ See OneDrive album https://1drv.ms/a/s!Asv2q6XGbXXnjcFvja_AwGJesQhlCg
 
 ## Network
 
-### Layer 1 - Physical
+### Layer 2 - Media Access
 | Name   | MAC Address       | Description |
 |--------|-------------------|-------------|
 | SRV-01 | B8:88:E3:E0:98:9D | Onboard LAN |
