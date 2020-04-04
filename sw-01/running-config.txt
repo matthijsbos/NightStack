@@ -1,0 +1,268 @@
+config-file-header
+switchec8e17
+v1.1.0.21
+CLI v1.0
+set system 
+@
+vlan database
+vlan 10,20,30,40 
+exit
+voice vlan oui-table add 0001e3 Siemens_AG_phone________
+voice vlan oui-table add 00036b Cisco_phone_____________
+voice vlan oui-table add 00096e Avaya___________________
+voice vlan oui-table add 000fe2 H3C_Aolynk______________
+voice vlan oui-table add 0060b9 Philips_and_NEC_AG_phone
+voice vlan oui-table add 00d01e Pingtel_phone___________
+voice vlan oui-table add 00e075 Polycom/Veritel_phone___
+voice vlan oui-table add 00e0bb 3Com_phone______________
+hostname switchec8e17
+username admin password encrypted ccba907d300e5681eecbb74de30e0e5253520260 privilege 15 
+!
+interface vlan 1
+ no ipv6 address autoconfig 
+ no ipv6 enable 
+ no ipv6 dhcp client stateless 
+!
+interface vlan 10
+ name WAN 
+!
+interface vlan 20
+ name Public 
+!
+interface vlan 30
+ name Management 
+ ip address dhcp 
+ ipv6 address autoconfig 
+!
+interface vlan 40
+ name Storage 
+!
+interface gigabitethernet1
+ description srv-01
+ switchport mode general 
+ switchport general allowed vlan add 20,40 tagged 
+ switchport general allowed vlan add 30 untagged 
+ switchport forbidden vlan add 10 
+ switchport general pvid 30 
+ switchport forbidden default-vlan 
+!
+interface gigabitethernet2
+ switchport mode general 
+ switchport general allowed vlan add 20,40 tagged 
+ switchport general allowed vlan add 30 untagged 
+ switchport forbidden vlan add 10 
+ switchport general pvid 30 
+ switchport forbidden default-vlan 
+!
+interface gigabitethernet3
+ switchport mode general 
+ switchport general allowed vlan add 20,40 tagged 
+ switchport general allowed vlan add 30 untagged 
+ switchport forbidden vlan add 10 
+ switchport general pvid 30 
+ switchport forbidden default-vlan 
+!
+interface gigabitethernet4
+ switchport mode general 
+ switchport general allowed vlan add 20,40 tagged 
+ switchport general allowed vlan add 30 untagged 
+ switchport forbidden vlan add 10 
+ switchport general pvid 30 
+ switchport forbidden default-vlan 
+!
+interface gigabitethernet5
+ switchport mode general 
+ switchport general allowed vlan add 20,40 tagged 
+ switchport general allowed vlan add 30 untagged 
+ switchport forbidden vlan add 10 
+ switchport general pvid 30 
+ switchport forbidden default-vlan 
+!
+interface gigabitethernet6
+ switchport mode general 
+ switchport general allowed vlan add 20,40 tagged 
+ switchport general allowed vlan add 30 untagged 
+ switchport forbidden vlan add 10 
+ switchport general pvid 30 
+ switchport forbidden default-vlan 
+!
+interface gigabitethernet7
+ switchport mode general 
+ switchport general allowed vlan add 10,20,40 tagged 
+ switchport general allowed vlan add 30 untagged 
+ switchport general pvid 30 
+ switchport forbidden default-vlan 
+!
+interface gigabitethernet8
+ switchport mode general 
+ switchport general allowed vlan add 20,40 tagged 
+ switchport general allowed vlan add 30 untagged 
+ switchport forbidden vlan add 10 
+ switchport general pvid 30 
+ switchport forbidden default-vlan 
+!
+interface gigabitethernet9
+ switchport mode access 
+ switchport access vlan 40 
+ switchport forbidden vlan add 10,20,30 
+ switchport forbidden default-vlan 
+!
+interface gigabitethernet10
+ switchport mode access 
+ switchport access vlan 30 
+ switchport forbidden vlan add 10,20,40 
+ switchport forbidden default-vlan 
+!
+interface gigabitethernet11
+ switchport mode access 
+ switchport access vlan 20 
+ switchport forbidden vlan add 10,30,40 
+ switchport forbidden default-vlan 
+!
+interface gigabitethernet12
+ switchport mode access 
+ switchport access vlan 20 
+ switchport forbidden vlan add 10,30,40 
+ switchport forbidden default-vlan 
+!
+interface gigabitethernet13
+ switchport mode access 
+ switchport forbidden vlan add 10,20,30,40 
+!
+interface gigabitethernet14
+ switchport mode access 
+ switchport forbidden vlan add 10,20,30,40 
+!
+interface gigabitethernet15
+ switchport mode access 
+ switchport forbidden vlan add 10,20,30,40 
+!
+interface gigabitethernet16
+ switchport mode access 
+ switchport forbidden vlan add 10,20,30,40 
+!
+interface gigabitethernet17
+ switchport mode access 
+ switchport forbidden vlan add 10,20,30,40 
+!
+interface gigabitethernet18
+ switchport mode access 
+ switchport forbidden vlan add 10,20,30,40 
+!
+interface gigabitethernet19
+ switchport mode access 
+ switchport forbidden vlan add 10,20,30,40 
+!
+interface gigabitethernet20
+ switchport mode access 
+ switchport forbidden vlan add 10,20,30,40 
+!
+interface gigabitethernet21
+ switchport mode access 
+ switchport access vlan 40 
+ switchport forbidden vlan add 10,20,30 
+ switchport forbidden default-vlan 
+!
+interface gigabitethernet22
+ switchport mode access 
+ switchport access vlan 30 
+ switchport forbidden vlan add 10,20,40 
+ switchport forbidden default-vlan 
+!
+interface gigabitethernet23
+ switchport mode access 
+ switchport access vlan 20 
+ switchport forbidden vlan add 10,30,40 
+ switchport forbidden default-vlan 
+!
+interface gigabitethernet24
+ switchport mode access 
+ switchport access vlan 20 
+ switchport forbidden vlan add 10,30,40 
+ switchport forbidden default-vlan 
+!
+interface gigabitethernet25
+ switchport mode access 
+ switchport access vlan 10 
+ switchport forbidden vlan add 20,30,40 
+ switchport forbidden default-vlan 
+!
+interface gigabitethernet26
+ switchport mode access 
+ switchport access vlan 10 
+ switchport forbidden vlan add 20,30,40 
+ switchport forbidden default-vlan 
+!
+exit
+crypto certificate 1 import
+-----BEGIN RSA PRIVATE KEY-----
+MIICXAIBAAKBgQDHpexgOASbkJv8daFZyGgGCi8bagVOPmudh7cyzHlSJpeNpJAB7Sc3oM
+QYYQbIxieHD1AaYFs+kaYtAOT0BO4k+Vb3cBRfOgPYlMT0RQAi1Oeif0XMeK7wDJYn2GIV
+XK5JHTS05JCdCW7zQhFtwCO/qmw11EG1BEfm2YFhAzf/2QIDAQABAoGAUSOrBJPfs4W7D4
+iTEdU0Cbhb2s1k6J7Px88fcmLNr8iFcYh/CnlipeYNrEbKphB6ghaEHKQqkSxKmCGz60SR
+r/cC04RDALBsaKaev75vqWG3r378dPqK+UIUht4tsIZpu77cnVBWOEX6j1t0V2Mda65Y0u
+liq2XJ6Z6vqt+55gECQQDx8DRhtkfX5BP7zAqVr5STcfhBONO/zCbM7LY0t23ez6uLAX9A
+iLz+JWxH3FpP2E4tk17lTFV2x6FqMV4qK7zBAkEA00B79au7mY1bSPaLgDSKSFTFz6KcrH
+fovDL0dBgo8mLi4gT1LW4uzFCZGEForYpckNzdQXeGA2HPCSF/ARnRGQJBAJTJlG1DHIu4
+yFFh+mBzynui63mw6QhbFMGSEbv50qfkLysdkJSvgwsJGL5Y1XGlJO8CYqnBeA3EV5BnK/
+HjVAECQCspS6pgEg5HcVUw+kOReIdauqe3o6chQK3jA0sM/KC5T326YZWMo4cfGIh6JLcA
+Q/VdCt+rWfgq7bAB5f8FlVECQFWe+ArYxS4F8k/jlieAL2cQaEiao27pWl1/Z4HlZZ3A8I
+fKG3DengQu4AeipqZXlOJupqVIu5ISvDB0L1SQCbM=
+-----END RSA PRIVATE KEY-----
+
+-----BEGIN RSA PUBLIC KEY-----
+MIGJAoGBAMel7GA4BJuQm/x1oVnIaAYKLxtqBU4+a52HtzLMeVIml42kkAHtJzegxBhhBs
+jGJ4cPUBpgWz6Rpi0A5PQE7iT5VvdwFF86A9iUxPRFACLU56J/Rcx4rvAMlifYYhVcrkkd
+NLTkkJ0JbvNCEW3AI7+qbDXUQbUER+bZgWEDN//ZAgMBAAE=
+-----END RSA PUBLIC KEY-----
+-----BEGIN CERTIFICATE-----
+MIICHDCCAYUCEGkv+tvRiEwlGRR+44KRTgcwDQYJKoZIhvcNAQEFBQAwTzELMAkG
+A1UEBhMCICAxCjAIBgNVBAgTASAxCjAIBgNVBAcTASAxEDAOBgNVBAMTBzAuMC4w
+LjAxCjAIBgNVBAoTASAxCjAIBgNVBAsTASAwHhcNMTQwOTA4MTIyMDA1WhcNMTUw
+OTA4MTIyMDA1WjBPMQswCQYDVQQGEwIgIDEKMAgGA1UECBMBIDEKMAgGA1UEBxMB
+IDEQMA4GA1UEAxMHMC4wLjAuMDEKMAgGA1UEChMBIDEKMAgGA1UECxMBIDCBnzAN
+BgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAx6XsYDgEm5Cb/HWhWchoBgovG2oFTj5r
+nYe3Msx5UiaXjaSQAe0nN6DEGGEGyMYnhw9QGmBbPpGmLQDk9ATuJPlW93AUXzoD
+2JTE9EUAItTnon9FzHiu8AyWJ9hiFVyuSR00tOSQnQlu80IRbcAjv6psNdRBtQRH
+5tmBYQM3/9kCAwEAATANBgkqhkiG9w0BAQUFAAOBgQAtHchI2hR6zcS2SMUtvQGm
+f791RBczWcrxENg+j2VzJfVZQNOkqAWA1/CNWQ7/obn3/HNBkDm+aD5CAf4DYgV0
+06fC6Mi7Z9kZuI21zCKxoJEyDVI/+rBf7+xclGgU5naWak8WmGbm1qV0pnx0eKNc
+0kTlH+i/ElluaSCMrtrXwg==
+-----END CERTIFICATE-----
+.
+crypto certificate 2 import
+-----BEGIN RSA PRIVATE KEY-----
+MIICXAIBAAKBgQCoq/uEYgG3LvTOIfdiMeEjCSbcCmvEHYpgelnMMXUVJa5JFIGjclbLCQ
+uPTRVwbW/Z5VTM1K8ACS2G6stzjDurR33FUDCgHLjYshPH3KIqiXCbZQPyTISCMzilTGly
+w/g1dmWrjLy11zH4KnSMXeAs3gLap7Zy+ZLx4RW+ild5XQIDAQABAoGBAItOV5HTnBUeDA
+P/W6DXD1lvYo/Tb4Pu3e2mv2l843VOxK4I6LUEZxiTZN+6y10qlXmCBdKSSeKeseI/Iz9Q
+b6pD6+a+fsfVPD/rPnGb/FnWKfRtekwYE1nF/QeO9nssKM/6OPc2jvTqj5dNVmqlgxQGAw
+X6Mh8inAMLwPJD2PDFAkEA2YDW3bB7WOF5f4NlsdthcQ7j8K0Dbfq2UOkcwTgrpqpRLRk5
+Hs+TIH88yarCv/0vYIKKjiFP3ubzdNfJQA6TDwJBAMaGkdIQkgTjKEeTcu56ksS3PBloxT
+80bqlizJuQ9RJNoYcRVFZL3OSBwK9fRZ0LzeQU6HapNUMwled0DPtXfNMCQGoExDdRU/6S
+AVAnc0WLouaiFHd3TgmowH+V8V85iwV1VZY/Cjm7goK/opjGdKFyv0oyt2jqUe1b8+XLXR
+ytPf8CQGVUjJuHH7Dk7UtTZId7Auzrhf6GLp+rOIy2xC7nV1+nRjo1yzFc+XudCue4nkSh
+oM65KUpf5bLM2sbPwkyMBEcCQG5ck8T+6XT39K/Wl2cJpvSN424MMZNbJb09UjKqrpoGTE
+PvBC2SMBfiHyFqtDt/KbtxNmZOOEwSQThAIQYNtoU=
+-----END RSA PRIVATE KEY-----
+
+-----BEGIN RSA PUBLIC KEY-----
+MIGJAoGBAKir+4RiAbcu9M4h92Ix4SMJJtwKa8QdimB6WcwxdRUlrkkUgaNyVssJC49NFX
+Btb9nlVMzUrwAJLYbqy3OMO6tHfcVQMKAcuNiyE8fcoiqJcJtlA/JMhIIzOKVMaXLD+DV2
+ZauMvLXXMfgqdIxd4CzeAtqntnL5kvHhFb6KV3ldAgMBAAE=
+-----END RSA PUBLIC KEY-----
+-----BEGIN CERTIFICATE-----
+MIICHDCCAYUCEGryUETnt6KUGdXEWg24dwswDQYJKoZIhvcNAQEFBQAwTzELMAkG
+A1UEBhMCICAxCjAIBgNVBAgTASAxCjAIBgNVBAcTASAxEDAOBgNVBAMTBzAuMC4w
+LjAxCjAIBgNVBAoTASAxCjAIBgNVBAsTASAwHhcNMTQwOTA4MTIyMDEwWhcNMTUw
+OTA4MTIyMDEwWjBPMQswCQYDVQQGEwIgIDEKMAgGA1UECBMBIDEKMAgGA1UEBxMB
+IDEQMA4GA1UEAxMHMC4wLjAuMDEKMAgGA1UEChMBIDEKMAgGA1UECxMBIDCBnzAN
+BgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAqKv7hGIBty70ziH3YjHhIwkm3AprxB2K
+YHpZzDF1FSWuSRSBo3JWywkLj00VcG1v2eVUzNSvAAkthurLc4w7q0d9xVAwoBy4
+2LITx9yiKolwm2UD8kyEgjM4pUxpcsP4NXZlq4y8tdcx+Cp0jF3gLN4C2qe2cvmS
+8eEVvopXeV0CAwEAATANBgkqhkiG9w0BAQUFAAOBgQCikDH6wtb9vpeMwTvq5orm
+x8YWEV9OdHA9F+oBy4mbvJvqHKtMn1PKTrbk2rcKdAcX5S1JOHuijWTdVdqxYsDu
+CK9NhgCMx/e6mMdlvH4W5jdReykvR9lolbjy6qIi2hsSjWHiZog5oyGtvY3OH/A9
+a8zCGEDXG2hVXVDx524EYw==
+-----END CERTIFICATE-----
+.
