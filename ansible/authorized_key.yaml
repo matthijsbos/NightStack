@@ -1,0 +1,13 @@
+---
+
+- hosts:
+    - all
+  become: true
+  tasks:
+      - name: add matthijsbos'laptop public key
+        authorized_key:
+            manage_dir: true
+            state: present
+            user: matthijsbos
+            key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDUPcRsfpOxAqCbl8lb+Mx5YFK65Kztwpmw3JCuNjzwiT+rQ10L6J92slVKafTkf9HsH22QxcmAbl+OcCUcagIzp4swqNCEKxbsjk6AOLCPTrJdI41cD85ZPcwru6FHVdBfXgI7eURJuM5MNQRPg9sMzq6eOvtwSwwGwGO7JPakL+F8SjhJ0ciAlFDhKO7KTm15f12eMPUjDU8cdeP+AfcSAbXmRFM1DZqHJXDOWbiyfX3jFEM/4vZvVVk4uA5i0sZboDysYqzrkI0jLYZ+9GgVnIyBwmpesKJUqmxvdXAsxTXrWBhUzjwMNbv/Jt3I18dhP0boMkK733eBr0LPEXLaVePamnXqde5r+wVV6ozkUSlLvW/ok58OHO9gW/chC1lpAHxM33iF+/wbE/fS4QQLyJbilIZ+g+wyki0T36hAFClBnUNA+Sk08jVVPxtMPuD8WltWHoYH4FPvO1XKVZH2mwnLPJC6FcflHbSIFt9WLt1Y0xXfOEMB5ElAe9ZOVtkf34fFMjhuxD13qIEguvA2l2cm6jzFf3htJHk57b5dwbu8XZTP3TwkU3zmBHRn/6SoKDjJ3aUW6FsBhJPCLvRAmODhhdThDe06fSpleyWkExzgphN7yjr4zUPF8a2wRurTvhGrlm3or4SXCTMA9hSfZWCHzCfMbAjMRkXHRVUWHQ==
+
