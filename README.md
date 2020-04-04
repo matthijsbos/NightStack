@@ -15,7 +15,9 @@ OpenStack cluster in a nightstand built out of used laptops, used for experiment
 ## Photos
 See OneDrive album https://1drv.ms/a/s!Asv2q6XGbXXnjcFvja_AwGJesQhlCg 
 
-## Hardware Specifications
+## Hardware
+
+### Specifications
 | Name   | Device                       | CPU                       | RAM  | Storage                             | Networking                                               | Description                             |
 |--------|------------------------------|---------------------------|------|-------------------------------------|----------------------------------------------------------|-----------------------------------------|
 | SRV-01 | Lenovo ThinkPad Twist s230u  | Intel Core i5 3317U (x64) | 4 GB | 256 GB SSD (mSATA)                  | 1x Onboard Gigabit Ethernet, 1x USB 3.0 Gigabit Ethernet | OpenStack Control Node                  |
@@ -28,7 +30,13 @@ See OneDrive album https://1drv.ms/a/s!Asv2q6XGbXXnjcFvja_AwGJesQhlCg
 | AP-01  | TP-Link TL-WR3020 (Ver 1.9)  | Atheros AR9331            | 32 MB| 4 MB onboard flash                  | 1x Onboard 100 MBit Ethernet, IEEE 802.11b/g/n           | Wi-Fi Access Point                      |
 | SW-01  | Linksys LGS326               | N.a.                      | N.a. | N.a.                                | 26x Gigabit Ethernet                                     | Network Switch                          |
 
-## Hardware Layout
+### Hardware Documentation
+| Name                           |  Uri                                                                                                        |
+|--------------------------------|-------------------------------------------------------------------------------------------------------------|
+| Dell E6330 electrical diagrams | http://www.s-manuals.com/pdf/motherboard/compal/compal_la-7741p_r0.1_schematics.pdf                         |
+| Linksys LGS326 manual          | https://usermanual.wiki/Linksys/ManLgs308Lgs318Lgs326Lgs308PLgs318PLgs326P882001844Revb01En.1664450959/view |
+
+### Hardware Layout
 ![](/doc/img/front-layout.png)
 
 ## Network
