@@ -45,18 +45,18 @@ See OneDrive album https://1drv.ms/a/s!Asv2q6XGbXXnjcFvja_AwGJesQhlCg
 | Name   | MAC Address       | Description |
 |--------|-------------------|-------------|
 | SRV-01 | B8:88:E3:E0:98:9D | Onboard LAN |
-| SRV-01 | TODO              | USB LAN     |
+| SRV-01 | 00:E0:4C:6B:6B:6A | USB LAN     |
 | SRV-02 | E0:DB:55:E1:CD:98 | Onboard LAN |
-| SRV-02 | TODO              | USB LAN     |
+| SRV-02 | 00:E0:4C:6B:6F:5D | USB LAN     |
 | SRV-03 | B8:CA:3A:D3:2C:3B | Onboard LAN |
-| SRV-03 | TODO              | USB LAN     |
+| SRV-03 | 00:E0:4C:6B:6E:A1 | USB LAN     |
 | SRV-04 | F0:1F:AF:22:3A:55 | Onboard LAN |
-| SRV-04 | TODO              | USB LAN     |
+| SRV-04 | 00:E0:4C:6B:6A:4E | USB LAN     |
 | SRV-05 | F0:1F:AF:2F:2F:9E | Onboard LAN |
-| SRV-05 | TODO              | USB LAN     |
+| SRV-05 | 00:E0:4C:6B:6F:D9 | USB LAN     |
 | SRV-06 | D4:BE:D9:87:B8:23 | Onboard LAN |
-| SRV-06 | TODO              | USB LAN     |
-| RPI-01 | b8:27:eb:49:b0:4c | Onboard LAN |
+| SRV-06 | 00:E0:4C:6B:6E:BA | USB LAN     |
+| RPI-01 | B8:27:EB:49:B0:4C | Onboard LAN |
 | AP-01  | D4:6E:0E:79:E6:BE | Onboard LAN |
 | SW-01  | 14:91:82:EC:8E:17 | Management  |
 
