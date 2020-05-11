@@ -141,3 +141,15 @@ LED5 ==== cable 1, lead 8 ==== (GPIO 09) -> | 21 | 22 | <- (GPIO 25) ==== cable 
                                             | 39 | 40 |
                                              ---- ----            
 ```
+
+## Temperature Sensors
+
+DS18B20
+
+Addresses:
+
+- 286016E937190143 = intake (h:top d:front w:right)
+- 284CA0DF3719011A = intake (h:center d:front w:right)
+- 2804D8B33719011F = intake (h:bottom d:front w:center)
+- 287447D63719014E = exhaust left
+- 2872F9E237190157 = exhaust right
