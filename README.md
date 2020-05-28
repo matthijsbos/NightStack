@@ -142,6 +142,17 @@ LED5 ==== cable 1, lead 8 ==== (GPIO 09) -> | 21 | 22 | <- (GPIO 25) ==== cable 
                                              ---- ----            
 ```
 
+## Back Cover Connector
+
+- Green = +5v Fans Right
+- Green-White = -5v Fans Right
+- Orange = +5v Fans Left
+- Orange-White = -5v Fans Left
+- Brown = VDD DS18B20 Temperature Sensors
+- Brown-White = DQ DS18B20 Temperature Sensors
+- Blue = GND DS18B20 Temperature Sensors
+- Blue-White = Unused
+
 ## Temperature Sensors
 
 DS18B20
