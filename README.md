@@ -148,8 +148,8 @@ DS18B20
 
 Addresses:
 
-- 286016E937190143 = intake (h:top d:front w:right)
-- 284CA0DF3719011A = intake (h:center d:front w:right)
-- 2804D8B33719011F = intake (h:bottom d:front w:center)
-- 287447D63719014E = exhaust left
-- 2872F9E237190157 = exhaust right
+- `286016E937190143` = intake (h:top d:front w:right)
+- `284CA0DF3719011A` = intake (h:center d:front w:right)
+- `2804D8B33719011F` = intake (h:bottom d:front w:center)
+- `2885A016A8013C17` = exhaust left (h: center: d: back: w: left)
+- `283A3816A8013CBD` = exhaust right (h: center: d: back: w: right)
