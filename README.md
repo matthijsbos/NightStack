@@ -15,7 +15,7 @@ OpenStack cluster in a nightstand built out of used laptops, used for experiment
 ## Photos
 See OneDrive album https://1drv.ms/a/s!Asv2q6XGbXXnjcFvja_AwGJesQhlCg 
 
-## Hardware
+## Computer Hardware
 
 ### Specifications
 | Name   | Device                       | CPU                 | RAM   | Storage                             | Networking                                               | Description                             |
@@ -30,14 +30,127 @@ See OneDrive album https://1drv.ms/a/s!Asv2q6XGbXXnjcFvja_AwGJesQhlCg
 | AP-01  | GL.iNet microuter-N300       | MediaTek MTK7628NN  | 64 MB | 8 MB Flash                          | 1x Onboard 100 MBit Ethernet, IEEE 802.11b/g/n 300Mbps   | Wi-Fi Access Point                      |
 | SW-01  | Linksys LGS326               | N.a.                | N.a.  | N.a.                                | 26x Gigabit Ethernet                                     | Network Switch                          |
 
-### Hardware Documentation
+### Documentation
 | Name                           |  Uri                                                                                                                                                                       |
 |--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Dell E6330 electrical diagrams | [compal_la-7741p_r0.1_schematics.pdf](http://www.s-manuals.com/pdf/motherboard/compal/compal_la-7741p_r0.1_schematics.pdf)                                                 |
 | Linksys LGS326 manual          | [ManLgs308Lgs318Lgs326Lgs308PLgs318PLgs326P882001844Revb01En](https://usermanual.wiki/Linksys/ManLgs308Lgs318Lgs326Lgs308PLgs318PLgs326P882001844Revb01En.1664450959/view) |
 
-### Hardware Layout
+### Layout
 ![](/doc/img/front-layout.png)
+
+## Front Panel
+
+### Functionality
+| Name  | Description        |
+|-------|--------------------|
+| BTN1  | Soft power on/off  |
+| BTN2  | Unused             |
+| BTN3  | Unused             |
+| LED1  | SRV-01 status      |
+| LED2  | SRV-02 status      |
+| LED3  | SRV-03 status      |
+| LED4  | SRV-04 status      |
+| LED5  | SRV-05 status      |
+| LED6  | SRV-06 status      |
+| LED7  | Temperature        |
+| LED8  | SW-01 status       |
+| LED9  | AP-01 status       |
+| LED10 | RPI-01 status      |
+
+### LED Status Pattern
+| Status   | Pattern      |
+|----------|--------------|
+| Off      | `----------` |
+| Starting | `-----+++++` |
+| Stopping | `-----+++++` |
+| On/Ok    | `--++++++++` |
+| Error    | `---++---++` |
+
+### Rapsberry Pi 3 GPIO Header Pin Assignment
+
+![](https://www.raspberrypi.org/documentation/usage/gpio/images/GPIO-Pinout-Diagram-2.png)
+
+```
+                                                                 ---- ----
+3v3 === cable 1, lead 1 === blue-white ==<< <<===== 3V3 ========| 01 | 02 |
+                                                                 ---- ----
+BTN1 == cable 1, lead 2 === blue ========<< <<===== GPIO2 ======| 03 | 04 |
+                                                                 ---- ----
+BTN2 == cable 1, lead 3 === orange-white =<< <<==== GPIO3 ======| 05 | 06 |
+                                                                 ---- ----
+1WIRE = cable 1, lead 4 === orange =======<< <<==== GPIO4 ======| 07 | 08 |
+                                                                 ---- ----
+GND === cable 1, lead 5 === green-white ==<< <<==== GPIO5 ======| 09 | 10 |
+                                                                 ---- ----
+BTN3 == cable 1, lead 6 === green ========<< <<==== GPIO17 =====| 11 | 12 |
+                                                                 ---- ----
+LED1 == cable 1, lead 7 === brown-white ==<< <<==== GPIO27 =====| 13 | 14 |
+                                                                 ---- ----
+LED2 == cable 1, lead 8 === brown ========<< <<==== GPIO22 =====| 15 | 16 |
+                                                                 ---- ----
+                                                                | 17 | 18 |
+                                                                 ---- ----
+LED3 == cable 2, lead 1 === blue-white ===<< <<==== GPIO10 =====| 19 | 20 |
+                                                                 ---- ----
+LED4 == cable 2, lead 2 === blue =========<< <<==== GPIO9 ======| 21 | 22 |
+                                                                 ---- ----
+LED5 == cable 2, lead 3 === orange-white =<< <<==== GPIO11 =====| 23 | 24 |
+                                                                 ---- ----
+                                                                | 25 | 26 |
+                                                                 ---- ----
+                                                                | 27 | 28 |
+                                                                 ---- ----
+LED6 == cable 2, lead 4 === orange =======<< <<==== GPIO5 ======| 29 | 30 |
+                                                                 ---- ----
+LED7 == cable 2, lead 5 === green-white ==<< <<==== GPIO6 ======| 31 | 32 |
+                                                                 ---- ----
+LED8 == cable 2, lead 6 === green ========<< <<==== GPIO13 =====| 33 | 34 |
+                                                                 ---- ----
+LED9 == cable 2, lead 7 === brown-white ==<< <<==== GPIO19 =====| 35 | 36 |
+                                                                 ---- ----
+LED10 = cable 2, lead 8 === brown ========<< <<==== GPIO26 =====| 37 | 38 |
+                                                                 ---- ----
+                                                                | 39 | 40 |
+                                                                 ---- ----            
+```
+
+### Back Cover Connector
+
+- Green = +5v Fans Right
+- Green-White = -5v Fans Right
+- Orange = +5v Fans Left
+- Orange-White = -5v Fans Left
+- Brown = VDD DS18B20 Temperature Sensors
+- Brown-White = DQ DS18B20 Temperature Sensors
+- Blue = GND DS18B20 Temperature Sensors
+- Blue-White = Unused
+
+### Temperature Sensors
+
+DS18B20
+
+Addresses:
+
+- `286016E937190143` = intake (h:top d:front w:right)
+- `284CA0DF3719011A` = intake (h:center d:front w:right)
+- `2804D8B33719011F` = intake (h:bottom d:front w:center)
+- `2885A016A8013C17` = exhaust left (h: center: d: back: w: left)
+- `283A3816A8013CBD` = exhaust right (h: center: d: back: w: right)
+
+## Software
+
+### Operating Systems
+| Node   | OS           | Version                                                                                                                                           |
+|--------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| SRV-01 | Ubuntu       | [Server 20.04.1 LTS AMD64](https://releases.ubuntu.com/20.04.1/ubuntu-20.04.1-live-server-amd64.iso)                                              |
+| SRV-02 | Ubuntu       | [Server 20.04.1 LTS AMD64](https://releases.ubuntu.com/20.04.1/ubuntu-20.04.1-live-server-amd64.iso)                                              |
+| SRV-03 | Ubuntu       | [Server 20.04.1 LTS AMD64](https://releases.ubuntu.com/20.04.1/ubuntu-20.04.1-live-server-amd64.iso)                                              |
+| SRV-04 | Ubuntu       | [Server 20.04.1 LTS AMD64](https://releases.ubuntu.com/20.04.1/ubuntu-20.04.1-live-server-amd64.iso)                                              |
+| SRV-05 | Ubuntu       | [Server 20.04.1 LTS AMD64](https://releases.ubuntu.com/20.04.1/ubuntu-20.04.1-live-server-amd64.iso)                                              |
+| SRV-06 | Ubuntu       | [Server 20.04.1 LTS AMD64](https://releases.ubuntu.com/20.04.1/ubuntu-20.04.1-live-server-amd64.iso)                                              |
+| RPI-01 | Ubuntu       | [Server 20.04.1 LTS Arm64 Raspberry Pi](https://cdimage.ubuntu.com/releases/20.04.1/release/ubuntu-20.04.1-preinstalled-server-arm64+raspi.img.xz)|
+| AP-01  | OpenWrt      | TODO                                                                                                                                              |
 
 ## Network
 
@@ -122,103 +235,3 @@ See OneDrive album https://1drv.ms/a/s!Asv2q6XGbXXnjcFvja_AwGJesQhlCg
 | Storage - Static lease    |   10.88.32.1 | 10.88.32.254 |
 | Storage - DHCP            |   10.88.47.1 | 10.88.47.254 |
 
-
-
-## Front Panel
-
-### Functionality
-| Name  | Description        |
-|-------|--------------------|
-| BTN1  | Soft power on/off  |
-| BTN2  | Unused             |
-| BTN3  | Unused             |
-| LED1  | SRV-01 status      |
-| LED2  | SRV-02 status      |
-| LED3  | SRV-03 status      |
-| LED4  | SRV-04 status      |
-| LED5  | SRV-05 status      |
-| LED6  | SRV-06 status      |
-| LED7  | Temperature        |
-| LED8  | SW-01 status       |
-| LED9  | AP-01 status       |
-| LED10 | RPI-01 status      |
-
-### LED Status Pattern
-| Status   | Pattern      |
-|----------|--------------|
-| Off      | `----------` |
-| Starting | `-----+++++` |
-| Stopping | `-----+++++` |
-| On/Ok    | `--++++++++` |
-| Error    | `---++---++` |
-
-### Rapsberry Pi 3 GPIO Header Pin Assignment
-
-![](https://www.raspberrypi.org/documentation/usage/gpio/images/GPIO-Pinout-Diagram-2.png)
-
-```
-                                                                 ---- ----
-3v3 === cable 1, lead 1 === blue-white ==<< <<===== 3V3 ========| 01 | 02 |
-                                                                 ---- ----
-BTN1 == cable 1, lead 2 === blue ========<< <<===== GPIO2 ======| 03 | 04 |
-                                                                 ---- ----
-BTN2 == cable 1, lead 3 === orange-white =<< <<==== GPIO3 ======| 05 | 06 |
-                                                                 ---- ----
-1WIRE = cable 1, lead 4 === orange =======<< <<==== GPIO4 ======| 07 | 08 |
-                                                                 ---- ----
-GND === cable 1, lead 5 === green-white ==<< <<==== GPIO5 ======| 09 | 10 |
-                                                                 ---- ----
-BTN3 == cable 1, lead 6 === green ========<< <<==== GPIO17 =====| 11 | 12 |
-                                                                 ---- ----
-LED1 == cable 1, lead 7 === brown-white ==<< <<==== GPIO27 =====| 13 | 14 |
-                                                                 ---- ----
-LED2 == cable 1, lead 8 === brown ========<< <<==== GPIO22 =====| 15 | 16 |
-                                                                 ---- ----
-                                                                | 17 | 18 |
-                                                                 ---- ----
-LED3 == cable 2, lead 1 === blue-white ===<< <<==== GPIO10 =====| 19 | 20 |
-                                                                 ---- ----
-LED4 == cable 2, lead 2 === blue =========<< <<==== GPIO9 ======| 21 | 22 |
-                                                                 ---- ----
-LED5 == cable 2, lead 3 === orange-white =<< <<==== GPIO11 =====| 23 | 24 |
-                                                                 ---- ----
-                                                                | 25 | 26 |
-                                                                 ---- ----
-                                                                | 27 | 28 |
-                                                                 ---- ----
-LED6 == cable 2, lead 4 === orange =======<< <<==== GPIO5 ======| 29 | 30 |
-                                                                 ---- ----
-LED7 == cable 2, lead 5 === green-white ==<< <<==== GPIO6 ======| 31 | 32 |
-                                                                 ---- ----
-LED8 == cable 2, lead 6 === green ========<< <<==== GPIO13 =====| 33 | 34 |
-                                                                 ---- ----
-LED9 == cable 2, lead 7 === brown-white ==<< <<==== GPIO19 =====| 35 | 36 |
-                                                                 ---- ----
-LED10 = cable 2, lead 8 === brown ========<< <<==== GPIO26 =====| 37 | 38 |
-                                                                 ---- ----
-                                                                | 39 | 40 |
-                                                                 ---- ----            
-```
-
-## Back Cover Connector
-
-- Green = +5v Fans Right
-- Green-White = -5v Fans Right
-- Orange = +5v Fans Left
-- Orange-White = -5v Fans Left
-- Brown = VDD DS18B20 Temperature Sensors
-- Brown-White = DQ DS18B20 Temperature Sensors
-- Blue = GND DS18B20 Temperature Sensors
-- Blue-White = Unused
-
-## Temperature Sensors
-
-DS18B20
-
-Addresses:
-
-- `286016E937190143` = intake (h:top d:front w:right)
-- `284CA0DF3719011A` = intake (h:center d:front w:right)
-- `2804D8B33719011F` = intake (h:bottom d:front w:center)
-- `2885A016A8013C17` = exhaust left (h: center: d: back: w: left)
-- `283A3816A8013CBD` = exhaust right (h: center: d: back: w: right)
