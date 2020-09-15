@@ -42,7 +42,7 @@ See OneDrive album https://1drv.ms/a/s!Asv2q6XGbXXnjcFvja_AwGJesQhlCg
 ## Network
 
 ### Layer 1 - Physical
-| AP-01 Interface | Node        | Interface   |
+| SW-01 Interface | Node        | Interface   |
 |-----------------|-------------|-------------|
 | 1               | SRV-01      | Onboard LAN |
 | 2               | SRV-02      | Onboard LAN |
