@@ -126,6 +126,32 @@ See OneDrive album https://1drv.ms/a/s!Asv2q6XGbXXnjcFvja_AwGJesQhlCg
 
 ## Front Panel
 
+### Functionality
+| Name  | Description        |
+|-------|--------------------|
+| BTN1  | Soft power on/off  |
+| BTN2  | Unused             |
+| BTN3  | Unused             |
+| LED1  | SRV-01 status      |
+| LED2  | SRV-02 status      |
+| LED3  | SRV-03 status      |
+| LED4  | SRV-04 status      |
+| LED5  | SRV-05 status      |
+| LED6  | SRV-06 status      |
+| LED7  | Temperature        |
+| LED8  | SW-01 status       |
+| LED9  | AP-01 status       |
+| LED10 | RPI-01 status      |
+
+### LED Status Pattern
+| Status   | Pattern      |
+|----------|--------------|
+| Off      | `----------` |
+| Starting | `-----+++++` |
+| Stopping | `-----+++++` |
+| On/Ok    | `--++++++++` |
+| Error    | `---++---++` |
+
 ### Rapsberry Pi 3 GPIO Header Pin Assignment
 
 ![](https://www.raspberrypi.org/documentation/usage/gpio/images/GPIO-Pinout-Diagram-2.png)
