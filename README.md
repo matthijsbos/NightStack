@@ -41,27 +41,59 @@ See OneDrive album https://1drv.ms/a/s!Asv2q6XGbXXnjcFvja_AwGJesQhlCg
 
 ## Network
 
-### Layer 2 - Media Access
-| Name   | MAC Address       | Description |
-|--------|-------------------|-------------|
-| SRV-01 | B8:88:E3:E0:98:9D | Onboard LAN |
-| SRV-01 | 00:E0:4C:6B:6B:6A | USB LAN     |
-| SRV-02 | E0:DB:55:E1:CD:98 | Onboard LAN |
-| SRV-02 | 00:E0:4C:6B:6F:5D | USB LAN     |
-| SRV-03 | B8:CA:3A:D3:2C:3B | Onboard LAN |
-| SRV-03 | 00:E0:4C:6B:6E:A1 | USB LAN     |
-| SRV-04 | F0:1F:AF:22:3A:55 | Onboard LAN |
-| SRV-04 | 00:E0:4C:6B:6A:4E | USB LAN     |
-| SRV-05 | F0:1F:AF:2F:2F:9E | Onboard LAN |
-| SRV-05 | 00:E0:4C:6B:6F:D9 | USB LAN     |
-| SRV-06 | D4:BE:D9:87:B8:23 | Onboard LAN |
-| SRV-06 | 00:E0:4C:6B:6E:BA | USB LAN     |
-| RPI-01 | B8:27:EB:49:B0:4C | Onboard LAN |
-| AP-01  | 94:83:C4:04:18:29 | Onboard LAN |
-| SW-01  | 14:91:82:EC:8E:17 | Management  |
+### Layer 1 - Physical
+| AP-01 Interface | Node        | Interface   |
+|-----------------|-------------|-------------|
+| 1               | SRV-01      | Onboard LAN |
+| 2               | SRV-02      | Onboard LAN |
+| 3               | SRV-03      | Onboard LAN |
+| 4               | SRV-04      | Onboard LAN |
+| 5               | SRV-05      | Onboard LAN |
+| 6               | SRV-06      | Onboard LAN |
+| 7               | RPI-01      | Onboard LAN |
+| 8               | AP-01       | Onboard LAN |
+| 9               | Front Panel | STOR        |
+| 10              | Front Panel | MAN         |
+| 11              | Front Panel | PUB2        |
+| 12              | Front Panel | PUB3        |
+| 13              | SRV-01      | USB LAN     |
+| 14              | SRV-02      | USB LAN     |
+| 15              | SRV-03      | USB LAN     |
+| 16              | SRV-04      | USB LAN     |
+| 17              | SRV-05      | USB LAN     |
+| 18              | SRV-06      | USB LAN     |
+| 19              | Unused      | Unused      |
+| 20              | Unused      | Unused      |
+| 21              | Unused      | Unused      |
+| 22              | Unused      | Unused      |
+| 23              | Front Panel | PUB1        |
+| 24              | Unused      | Unused      |
+| 25              | Front Panel | WAN         |
+| 26              | Unused      | Unused      |
 
-### Layer 2 - Virtual LAN
-> Wake-on-Lan (WoL) only works for untagged traffic
+![](https://cdn-reichelt.de/bilder/web/xxl_ws/E910/LINKSYS_LGS326_02.png)
+
+### Layer 2 - Media Access
+| Node   | Interface   | MAC Address       |
+|--------|-------------|-------------------|
+| SRV-01 | Onboard LAN | B8:88:E3:E0:98:9D |
+| SRV-01 | USB LAN     | 00:E0:4C:6B:6B:6A |
+| SRV-02 | Onboard LAN | E0:DB:55:E1:CD:98 |
+| SRV-02 | USB LAN     | 00:E0:4C:6B:6F:5D |
+| SRV-03 | Onboard LAN | B8:CA:3A:D3:2C:3B |
+| SRV-03 | USB LAN     | 00:E0:4C:6B:6E:A1 |
+| SRV-04 | Onboard LAN | F0:1F:AF:22:3A:55 |
+| SRV-04 | USB LAN     | 00:E0:4C:6B:6A:4E |
+| SRV-05 | Onboard LAN | F0:1F:AF:2F:2F:9E |
+| SRV-05 | USB LAN     | 00:E0:4C:6B:6F:D9 |
+| SRV-06 | Onboard LAN | D4:BE:D9:87:B8:23 |
+| SRV-06 | USB LAN     | 00:E0:4C:6B:6E:BA |
+| RPI-01 | Onboard LAN | B8:27:EB:49:B0:4C |
+| AP-01  | Onboard LAN | 94:83:C4:04:18:29 |
+| SW-01  | Management  | 14:91:82:EC:8E:17 |
+
+### Layer 2 - Virtual LAN (VLAN)
+> Wake-on-Lan (WoL) does not support VLAN tagging and only works for untagged traffic
 
 | Name       |  VLAN ID | Description       |
 |------------|---------:|-------------------|
