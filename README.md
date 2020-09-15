@@ -15,7 +15,10 @@ OpenStack cluster in a nightstand built out of used laptops, used for experiment
 ## Photos
 See OneDrive album https://1drv.ms/a/s!Asv2q6XGbXXnjcFvja_AwGJesQhlCg 
 
-## Computer Hardware
+## Hardware
+
+### Layout
+![](/doc/img/front-layout.png)
 
 ### Specifications
 | Name   | Device                       | CPU                 | RAM   | Storage                             | Networking                                               | Description                             |
@@ -36,8 +39,7 @@ See OneDrive album https://1drv.ms/a/s!Asv2q6XGbXXnjcFvja_AwGJesQhlCg
 | Dell E6330 electrical diagrams | [compal_la-7741p_r0.1_schematics.pdf](http://www.s-manuals.com/pdf/motherboard/compal/compal_la-7741p_r0.1_schematics.pdf)                                                 |
 | Linksys LGS326 manual          | [ManLgs308Lgs318Lgs326Lgs308PLgs318PLgs326P882001844Revb01En](https://usermanual.wiki/Linksys/ManLgs308Lgs318Lgs326Lgs308PLgs318PLgs326P882001844Revb01En.1664450959/view) |
 
-### Layout
-![](/doc/img/front-layout.png)
+
 
 ## Front Panel
 
@@ -128,15 +130,13 @@ LED10 = cable 2, lead 8 === brown ========<< <<==== GPIO26 =====| 37 | 38 |
 
 ### Temperature Sensors
 
-DS18B20
-
-Addresses:
-
-- `286016E937190143` = intake (h:top d:front w:right)
-- `284CA0DF3719011A` = intake (h:center d:front w:right)
-- `2804D8B33719011F` = intake (h:bottom d:front w:center)
-- `2885A016A8013C17` = exhaust left (h: center: d: back: w: left)
-- `283A3816A8013CBD` = exhaust right (h: center: d: back: w: right)
+| Model   | 1Wire Address      | Location                                       |
+|---------|--------------------|------------------------------------------------|
+| DS18B20 | `286016E937190143` | intake (h:top d:front w:right)                 |
+| DS18B20 | `284CA0DF3719011A` | intake (h:center d:front w:right)              |
+| DS18B20 | `2804D8B33719011F` | intake (h:bottom d:front w:center)             |
+| DS18B20 | `2885A016A8013C17` | exhaust left (h: center: d: back: w: left)     |
+| DS18B20 | `283A3816A8013CBD` | exhaust right (h: center: d: back: w: right)   |
 
 ## Software
 
@@ -186,45 +186,46 @@ Addresses:
 
 ![](https://cdn-reichelt.de/bilder/web/xxl_ws/E910/LINKSYS_LGS326_02.png)
 
-### Layer 2 - Media Access
-| Node   | Interface   | MAC Address       |
-|--------|-------------|-------------------|
-| SRV-01 | Onboard LAN | B8:88:E3:E0:98:9D |
-| SRV-01 | USB LAN     | 00:E0:4C:6B:6B:6A |
-| SRV-02 | Onboard LAN | E0:DB:55:E1:CD:98 |
-| SRV-02 | USB LAN     | 00:E0:4C:6B:6F:5D |
-| SRV-03 | Onboard LAN | B8:CA:3A:D3:2C:3B |
-| SRV-03 | USB LAN     | 00:E0:4C:6B:6E:A1 |
-| SRV-04 | Onboard LAN | F0:1F:AF:22:3A:55 |
-| SRV-04 | USB LAN     | 00:E0:4C:6B:6A:4E |
-| SRV-05 | Onboard LAN | F0:1F:AF:2F:2F:9E |
-| SRV-05 | USB LAN     | 00:E0:4C:6B:6F:D9 |
-| SRV-06 | Onboard LAN | D4:BE:D9:87:B8:23 |
-| SRV-06 | USB LAN     | 00:E0:4C:6B:6E:BA |
-| RPI-01 | Onboard LAN | B8:27:EB:49:B0:4C |
-| AP-01  | Onboard LAN | 94:83:C4:04:18:29 |
-| SW-01  | Management  | 14:91:82:EC:8E:17 |
-
-### Layer 2 - Virtual LAN (VLAN)
+### Layer 2 - Virtual LAN (VLAN) Broadcast Domains
 > Wake-on-Lan (WoL) does not support VLAN tagging and only works for untagged traffic
 
-| Name       |  VLAN ID | Description       |
-|------------|---------:|-------------------|
-| Management | Untagged |                   |
-| Disabled   |        1 |                   |
-| WAN        |       10 |                   |
-| Public     |       20 |                   |
-| Storage    |       40 |                   |
-| Tenant     |   1000+n | n tenant networks |
+| Name               |  VLAN ID | Description       |
+|--------------------|---------:|-------------------|
+| Management         | Untagged |                   |
+| Disabled (default) |        1 |                   |
+| WAN                |       10 |                   |
+| Public             |       20 |                   |
+| Storage            |       30 |                   |
+| Tenant             |   1000+n | n tenant networks |
 
-### Layer 3 - Subnets
+### Layer 2 - Media Access
+| Node   | Interface   | MAC Address       | Management (Untagged) | WAN (VLAN 10) | Public (VLAN 20) | Storage (VLAN 30) | Tenant (VLAN 1000+n) |
+|--------|-------------|-------------------|-----------------------|---------------|------------------|-------------------|----------------------|
+| SRV-01 | Onboard LAN | B8:88:E3:E0:98:9D | yes                   | no            | yes              | no                | yes                  |
+| SRV-01 | USB LAN     | 00:E0:4C:6B:6B:6A | no                    | no            | no               | yes               | no                   |
+| SRV-02 | Onboard LAN | E0:DB:55:E1:CD:98 | yes                   | no            | yes              | no                | yes                  |
+| SRV-02 | USB LAN     | 00:E0:4C:6B:6F:5D | no                    | no            | no               | yes               | no                   |
+| SRV-03 | Onboard LAN | B8:CA:3A:D3:2C:3B | yes                   | no            | yes              | no                | yes                  |
+| SRV-03 | USB LAN     | 00:E0:4C:6B:6E:A1 | no                    | no            | no               | yes               | no                   |
+| SRV-04 | Onboard LAN | F0:1F:AF:22:3A:55 | yes                   | no            | yes              | no                | yes                  |
+| SRV-04 | USB LAN     | 00:E0:4C:6B:6A:4E | no                    | no            | no               | yes               | no                   |
+| SRV-05 | Onboard LAN | F0:1F:AF:2F:2F:9E | yes                   | no            | yes              | no                | yes                  |
+| SRV-05 | USB LAN     | 00:E0:4C:6B:6F:D9 | no                    | no            | no               | yes               | no                   |
+| SRV-06 | Onboard LAN | D4:BE:D9:87:B8:23 | yes                   | no            | yes              | no                | yes                  |
+| SRV-06 | USB LAN     | 00:E0:4C:6B:6E:BA | no                    | no            | no               | yes               | no                   |
+| RPI-01 | Onboard LAN | B8:27:EB:49:B0:4C | yes                   | no            | yes              | yes               | no                   |
+| SW-01  | Management  | 14:91:82:EC:8E:17 | yes                   | no            | no               | no                | no                   |
+| AP-01  | Onboard LAN | 94:83:C4:04:18:29 | yes                   | no            | yes              | yes               | no                   |
+
+
+### Layer 3 - IPv4 Subnets
 | Name       |    CIDR Block |   Subnet Mask |   Host min |     Host Max | Host count |
 |------------|--------------:|--------------:|-----------:|-------------:|-----------:|
 | Public     |  10.88.0.0/20 | 255.255.240.0 |  10.88.0.1 | 10.88.15.254 |       4094 |
 | Management | 10.88.16.0/20 | 255.255.240.0 | 10.88.16.1 | 10.88.31.254 |       4094 |
 | Storage    | 10.88.32.0/20 | 255.255.240.0 | 10.88.32.1 | 10.88.47.254 |       4094 |
 
-### Layer 3 - Subnet Segments
+### Layer 3 - IPv4 Subnet Segments
 | Name                      | Address from |   Address to |
 |---------------------------|-------------:|-------------:|
 | Public - Static lease     |    10.88.0.1 |  10.88.0.254 |
@@ -235,3 +236,21 @@ Addresses:
 | Storage - Static lease    |   10.88.32.1 | 10.88.32.254 |
 | Storage - DHCP            |   10.88.47.1 | 10.88.47.254 |
 
+### Layer 3 - Node Static IP Lease
+| Node   | Interface   | MAC Address       | Public Subnet | Management Subnet | Storage Subnet | Notes         |
+|--------|-------------|-------------------|---------------|-------------------|----------------|---------------|
+| SRV-01 | Onboard LAN | B8:88:E3:E0:98:9D | 10.88.0.1     | 10.88.16.1        | n.a.           |               |
+| SRV-01 | USB LAN     | 00:E0:4C:6B:6B:6A | n.a.          | n.a.              | 10.88.32.1     |               |
+| SRV-02 | Onboard LAN | E0:DB:55:E1:CD:98 | 10.88.0.2     | 10.88.16.2        | n.a.           |               |
+| SRV-02 | USB LAN     | 00:E0:4C:6B:6F:5D | n.a.          | n.a.              | 10.88.32.2     |               |
+| SRV-03 | Onboard LAN | B8:CA:3A:D3:2C:3B | 10.88.0.3     | 10.88.16.3        | n.a.           |               |
+| SRV-03 | USB LAN     | 00:E0:4C:6B:6E:A1 | n.a.          | n.a.              | 10.88.32.3     |               |
+| SRV-04 | Onboard LAN | F0:1F:AF:22:3A:55 | 10.88.0.4     | 10.88.16.4        | n.a.           |               |
+| SRV-04 | USB LAN     | 00:E0:4C:6B:6A:4E | n.a.          | n.a.              | 10.88.32.4     |               |
+| SRV-05 | Onboard LAN | F0:1F:AF:2F:2F:9E | 10.88.0.5     | 10.88.16.5        | n.a.           |               |
+| SRV-05 | USB LAN     | 00:E0:4C:6B:6F:D9 | n.a.          | n.a.              | 10.88.32.5     |               |
+| SRV-06 | Onboard LAN | D4:BE:D9:87:B8:23 | 10.88.0.6     | 10.88.16.6        | n.a.           |               |
+| SRV-06 | USB LAN     | 00:E0:4C:6B:6E:BA | n.a.          | n.a.              | 10.88.32.6     |               |
+| RPI-01 | Onboard LAN | B8:27:EB:49:B0:4C | 10.88.0.100   | 10.88.16.100      | 10.88.32.100   | DHCP, Gateway |
+| SW-01  | Management  | 14:91:82:EC:8E:17 | n.a.          | 10.88.16.101      | n.a.           |               |
+| AP-01  | Onboard LAN | 94:83:C4:04:18:29 | n.a.          | 10.88.16.102      | n.a.           |               |
