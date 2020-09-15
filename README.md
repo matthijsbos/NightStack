@@ -18,17 +18,17 @@ See OneDrive album https://1drv.ms/a/s!Asv2q6XGbXXnjcFvja_AwGJesQhlCg
 ## Hardware
 
 ### Specifications
-| Name   | Device                       | CPU                       | RAM  | Storage                             | Networking                                               | Description                             |
-|--------|------------------------------|---------------------------|------|-------------------------------------|----------------------------------------------------------|-----------------------------------------|
-| SRV-01 | Lenovo ThinkPad Twist s230u  | Intel Core i5 3317U (x64) | 4 GB | 256 GB SSD (mSATA)                  | 1x Onboard Gigabit Ethernet, 1x USB 3.0 Gigabit Ethernet | OpenStack Control Node                  |
-| SRV-02 | Dell Inspiron E6330          | Intel Core i5 3320M (x64) | 8 GB | 60 GB SSD (SATA)  500 GB HDD (SATA) | 1x Onboard Gigabit Ethernet, 1x USB 3.0 Gigabit Ethernet | OpenStack Worker Node                   |
-| SRV-03 | Dell Inspiron E6330          | Intel Core i5 3340M (x64) | 8 GB | 60 GB SSD (SATA)  320 GB HDD (SATA) | 1x Onboard Gigabit Ethernet, 1x USB 3.0 Gigabit Ethernet | OpenStack Worker Node                   |
-| SRV-04 | Dell Inspiron E6330          | Intel Core i5 3340M (x64) | 8 GB | 60 GB SSD (SATA)  320 GB HDD (SATA) | 1x Onboard Gigabit Ethernet, 1x USB 3.0 Gigabit Ethernet | OpenStack Worker Node                   |
-| SRV-05 | Dell Inspiron E6330          | Intel Core i5 3340M (x64) | 8 GB | 60 GB SSD (SATA)  320 GB HDD (SATA) | 1x Onboard Gigabit Ethernet, 1x USB 3.0 Gigabit Ethernet | OpenStack Worker Node                   |
-| SRV-06 | Dell Inspiron E6330          | Intel Core i5 3320M (x64) | 8 GB | 60 GB SSD (SATA)  320 GB HDD (SATA) | 1x Onboard Gigabit Ethernet, 1x USB 3.0 Gigabit Ethernet | OpenStack Worker Node                   |
-| RPI-01 | Raspberry Pi 3 Model B       | Broadcom BCM2837 (ARMv7)  | 1 GB | 16 GB SD Card                       | 1x Onboard 100 MBit Ethernet                             | Physical control Node, WAN Router, DHCP |
-| AP-01  | TP-Link TL-WR3020 (Ver 1.9)  | Atheros AR9331            | 32 MB| 4 MB onboard flash                  | 1x Onboard 100 MBit Ethernet, IEEE 802.11b/g/n           | Wi-Fi Access Point                      |
-| SW-01  | Linksys LGS326               | N.a.                      | N.a. | N.a.                                | 26x Gigabit Ethernet                                     | Network Switch                          |
+| Name   | Device                       | CPU                 | RAM   | Storage                             | Networking                                               | Description                             |
+|--------|------------------------------|---------------------|-------|-------------------------------------|----------------------------------------------------------|-----------------------------------------|
+| SRV-01 | Lenovo ThinkPad Twist s230u  | Intel Core i5 3317U | 4 GB  | 256 GB SSD (mSATA)                  | 1x Onboard Gigabit Ethernet, 1x USB 3.0 Gigabit Ethernet | OpenStack Control Node                  |
+| SRV-02 | Dell Inspiron E6330          | Intel Core i5 3320M | 8 GB  | 60 GB SSD (SATA), 500 GB HDD (SATA) | 1x Onboard Gigabit Ethernet, 1x USB 3.0 Gigabit Ethernet | OpenStack Worker Node                   |
+| SRV-03 | Dell Inspiron E6330          | Intel Core i5 3340M | 8 GB  | 60 GB SSD (SATA), 320 GB HDD (SATA) | 1x Onboard Gigabit Ethernet, 1x USB 3.0 Gigabit Ethernet | OpenStack Worker Node                   |
+| SRV-04 | Dell Inspiron E6330          | Intel Core i5 3340M | 8 GB  | 60 GB SSD (SATA), 320 GB HDD (SATA) | 1x Onboard Gigabit Ethernet, 1x USB 3.0 Gigabit Ethernet | OpenStack Worker Node                   |
+| SRV-05 | Dell Inspiron E6330          | Intel Core i5 3340M | 8 GB  | 60 GB SSD (SATA), 320 GB HDD (SATA) | 1x Onboard Gigabit Ethernet, 1x USB 3.0 Gigabit Ethernet | OpenStack Worker Node                   |
+| SRV-06 | Dell Inspiron E6330          | Intel Core i5 3320M | 8 GB  | 60 GB SSD (SATA), 320 GB HDD (SATA) | 1x Onboard Gigabit Ethernet, 1x USB 3.0 Gigabit Ethernet | OpenStack Worker Node                   |
+| RPI-01 | Raspberry Pi 3 Model B       | Broadcom BCM2837    | 1 GB  | 16 GB SD Card                       | 1x Onboard 100 MBit Ethernet                             | Physical control Node                   |
+| AP-01  | GL.iNet microuter-N300       | MediaTek MTK7628NN  | 64 MB | 8 MB Flash                          | 1x Onboard 100 MBit Ethernet, IEEE 802.11b/g/n 300Mbps   | Wi-Fi Access Point                      |
+| SW-01  | Linksys LGS326               | N.a.                | N.a.  | N.a.                                | 26x Gigabit Ethernet                                     | Network Switch                          |
 
 ### Hardware Documentation
 | Name                           |  Uri                                                                                                                                                                       |
@@ -57,7 +57,7 @@ See OneDrive album https://1drv.ms/a/s!Asv2q6XGbXXnjcFvja_AwGJesQhlCg
 | SRV-06 | D4:BE:D9:87:B8:23 | Onboard LAN |
 | SRV-06 | 00:E0:4C:6B:6E:BA | USB LAN     |
 | RPI-01 | B8:27:EB:49:B0:4C | Onboard LAN |
-| AP-01  | D4:6E:0E:79:E6:BE | Onboard LAN |
+| AP-01  | 94:83:C4:04:18:29 | Onboard LAN |
 | SW-01  | 14:91:82:EC:8E:17 | Management  |
 
 ### Layer 2 - Virtual LAN
