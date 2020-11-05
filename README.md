@@ -203,19 +203,19 @@ LED10 = cable 2, lead 8 === brown ========<< <<==== GPIO26 =====| 37 | 38 |
 |--------|-------------|-------------------|-----------------------|---------------|------------------|-------------------|----------------------|
 | SRV-01 | Onboard LAN | B8:88:E3:E0:98:9D | yes                   | no            | yes              | no                | yes                  |
 | SRV-01 | USB LAN     | 00:E0:4C:6B:6B:6A | no                    | no            | no               | yes               | no                   |
-| SRV-02 | Onboard LAN | E0:DB:55:E1:CD:98 | yes                   | no            | yes              | no                | yes                  |
+| SRV-02 | Onboard LAN | E0:DB:55:E1:CD:98 | yes                   | no            | no               | no                | yes                  |
 | SRV-02 | USB LAN     | 00:E0:4C:6B:6F:5D | no                    | no            | no               | yes               | no                   |
-| SRV-03 | Onboard LAN | B8:CA:3A:D3:2C:3B | yes                   | no            | yes              | no                | yes                  |
+| SRV-03 | Onboard LAN | B8:CA:3A:D3:2C:3B | yes                   | no            | no               | no                | yes                  |
 | SRV-03 | USB LAN     | 00:E0:4C:6B:6E:A1 | no                    | no            | no               | yes               | no                   |
-| SRV-04 | Onboard LAN | F0:1F:AF:22:3A:55 | yes                   | no            | yes              | no                | yes                  |
+| SRV-04 | Onboard LAN | F0:1F:AF:22:3A:55 | yes                   | no            | no               | no                | yes                  |
 | SRV-04 | USB LAN     | 00:E0:4C:6B:6A:4E | no                    | no            | no               | yes               | no                   |
-| SRV-05 | Onboard LAN | F0:1F:AF:2F:2F:9E | yes                   | no            | yes              | no                | yes                  |
+| SRV-05 | Onboard LAN | F0:1F:AF:2F:2F:9E | yes                   | no            | no               | no                | yes                  |
 | SRV-05 | USB LAN     | 00:E0:4C:6B:6F:D9 | no                    | no            | no               | yes               | no                   |
-| SRV-06 | Onboard LAN | D4:BE:D9:87:B8:23 | yes                   | no            | yes              | no                | yes                  |
+| SRV-06 | Onboard LAN | D4:BE:D9:87:B8:23 | yes                   | no            | no               | no                | yes                  |
 | SRV-06 | USB LAN     | 00:E0:4C:6B:6E:BA | no                    | no            | no               | yes               | no                   |
 | RPI-01 | Onboard LAN | B8:27:EB:49:B0:4C | yes                   | yes           | yes              | yes               | no                   |
 | SW-01  | Management  | 14:91:82:EC:8E:17 | yes                   | no            | no               | no                | no                   |
-| AP-01  | Onboard LAN | 94:83:C4:04:18:29 | yes                   | no            | yes              | yes               | no                   |
+| AP-01  | Onboard LAN | 94:83:C4:04:18:29 | yes                   | no            | no               | yes               | no                   |
 
 
 ### Layer 3 - IPv4 Subnets
