@@ -1,6 +1,6 @@
 config-file-header
 switchec8e17
-v1.1.0.21
+v1.1.1.9
 CLI v1.0
 set system 
 @
@@ -40,49 +40,44 @@ interface vlan 40
 interface gigabitethernet1
  description srv-01
  switchport mode general 
- switchport general allowed vlan add 20,40 tagged 
+ switchport general allowed vlan add 20 tagged 
  switchport general allowed vlan add 30 untagged 
- switchport forbidden vlan add 10 
+ switchport forbidden vlan add 10,40 
  switchport general pvid 30 
  switchport forbidden default-vlan 
 !
 interface gigabitethernet2
  switchport mode general 
- switchport general allowed vlan add 20,40 tagged 
  switchport general allowed vlan add 30 untagged 
- switchport forbidden vlan add 10 
+ switchport forbidden vlan add 10,20,40 
  switchport general pvid 30 
  switchport forbidden default-vlan 
 !
 interface gigabitethernet3
  switchport mode general 
- switchport general allowed vlan add 20,40 tagged 
  switchport general allowed vlan add 30 untagged 
- switchport forbidden vlan add 10 
+ switchport forbidden vlan add 10,20,40 
  switchport general pvid 30 
  switchport forbidden default-vlan 
 !
 interface gigabitethernet4
  switchport mode general 
- switchport general allowed vlan add 20,40 tagged 
  switchport general allowed vlan add 30 untagged 
- switchport forbidden vlan add 10 
+ switchport forbidden vlan add 10,20,40 
  switchport general pvid 30 
  switchport forbidden default-vlan 
 !
 interface gigabitethernet5
  switchport mode general 
- switchport general allowed vlan add 20,40 tagged 
  switchport general allowed vlan add 30 untagged 
- switchport forbidden vlan add 10 
+ switchport forbidden vlan add 10,20,40 
  switchport general pvid 30 
  switchport forbidden default-vlan 
 !
 interface gigabitethernet6
  switchport mode general 
- switchport general allowed vlan add 20,40 tagged 
  switchport general allowed vlan add 30 untagged 
- switchport forbidden vlan add 10 
+ switchport forbidden vlan add 10,20,40 
  switchport general pvid 30 
  switchport forbidden default-vlan 
 !
@@ -127,46 +122,58 @@ interface gigabitethernet12
 !
 interface gigabitethernet13
  switchport mode access 
- switchport forbidden vlan add 10,20,30,40 
+ switchport access vlan 40 
+ switchport forbidden vlan add 10,20,30 
+ switchport forbidden default-vlan 
 !
 interface gigabitethernet14
- switchport mode access 
- switchport forbidden vlan add 10,20,30,40 
-!
-interface gigabitethernet15
- switchport mode access 
- switchport forbidden vlan add 10,20,30,40 
-!
-interface gigabitethernet16
- switchport mode access 
- switchport forbidden vlan add 10,20,30,40 
-!
-interface gigabitethernet17
- switchport mode access 
- switchport forbidden vlan add 10,20,30,40 
-!
-interface gigabitethernet18
- switchport mode access 
- switchport forbidden vlan add 10,20,30,40 
-!
-interface gigabitethernet19
- switchport mode access 
- switchport forbidden vlan add 10,20,30,40 
-!
-interface gigabitethernet20
- switchport mode access 
- switchport forbidden vlan add 10,20,30,40 
-!
-interface gigabitethernet21
  switchport mode access 
  switchport access vlan 40 
  switchport forbidden vlan add 10,20,30 
  switchport forbidden default-vlan 
 !
+interface gigabitethernet15
+ switchport mode access 
+ switchport access vlan 40 
+ switchport forbidden vlan add 10,20,30 
+ switchport forbidden default-vlan 
+!
+interface gigabitethernet16
+ switchport mode access 
+ switchport access vlan 40 
+ switchport forbidden vlan add 10,20,30 
+ switchport forbidden default-vlan 
+!
+interface gigabitethernet17
+ switchport mode access 
+ switchport access vlan 40 
+ switchport forbidden vlan add 10,20,30 
+ switchport forbidden default-vlan 
+!
+interface gigabitethernet18
+ switchport mode access 
+ switchport access vlan 40 
+ switchport forbidden vlan add 10,20,30 
+ switchport forbidden default-vlan 
+!
+interface gigabitethernet19
+ switchport mode access 
+ switchport forbidden vlan add 10,20,30,40 
+ switchport forbidden default-vlan 
+!
+interface gigabitethernet20
+ switchport mode access 
+ switchport forbidden vlan add 10,20,30,40 
+ switchport forbidden default-vlan 
+!
+interface gigabitethernet21
+ switchport mode access 
+ switchport forbidden vlan add 10,20,30,40 
+ switchport forbidden default-vlan 
+!
 interface gigabitethernet22
  switchport mode access 
- switchport access vlan 30 
- switchport forbidden vlan add 10,20,40 
+ switchport forbidden vlan add 10,20,30,40 
  switchport forbidden default-vlan 
 !
 interface gigabitethernet23
@@ -177,8 +184,7 @@ interface gigabitethernet23
 !
 interface gigabitethernet24
  switchport mode access 
- switchport access vlan 20 
- switchport forbidden vlan add 10,30,40 
+ switchport forbidden vlan add 10,20,30,40 
  switchport forbidden default-vlan 
 !
 interface gigabitethernet25
