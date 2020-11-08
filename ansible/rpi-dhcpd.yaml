@@ -1,0 +1,92 @@
+---
+- hosts: rpi-01
+  tasks: 
+    - name: dhcpd management config
+      copy:
+        content: |
+            default-lease-time 600;
+            max-lease-time 7200;
+            option subnet-mask 255.255.240.0;
+            option broadcast-address 10.88.16.0;
+            # option routers 10.88.16.100;
+            option domain-name "management.nightstack.matthijsbos.nl";
+
+            subnet 10.88.16.0 netmask 255.255.240.0 {
+                range 10.88.31.1 10.88.31.254;
+
+                host sw-01 {
+                    hardware ethernet 14:91:82:ec:8e:17;
+                    fixed-address 10.88.16.101;
+                }
+            }
+
+        dest: /home/ubuntu/dhcpd-management.conf
+
+    - name: dhcpd public config
+      copy:
+        content: |
+            default-lease-time 600;
+            max-lease-time 7200;
+            option subnet-mask 255.255.240.0;
+            option broadcast-address 10.88.0.0;
+            option domain-name "public.nightstack.matthijsbos.nl";
+
+            subnet 10.88.0.0 netmask 255.255.240.0 {
+                range 10.88.15.1 10.88.15.254;
+            }
+
+        dest: /home/ubuntu/dhcpd-public.conf
+        
+    - name: dhcpd storage config
+      copy:
+        content: |
+            default-lease-time 600;
+            max-lease-time 7200;
+            option subnet-mask 255.255.240.0;
+            option broadcast-address 10.88.32.0;
+            option domain-name "storage.nightstack.matthijsbos.nl";
+
+            subnet 10.88.32.0 netmask 255.255.240.0 {
+                range 10.88.47.1 10.88.47.254;
+            }
+
+        dest: /home/ubuntu/dhcpd-storage.conf
+        
+    - name: Management network dhcpd docker container
+      docker_container:
+        name: dhcpd_management
+        image: 'woahbase/alpine-dhcp:aarch64'
+        network_mode: host
+        state: started
+        recreate: yes
+        restart_policy: unless-stopped
+        env:
+            INTERFACES: eth0
+        volumes:
+            - /home/ubuntu/dhcpd-management.conf:/etc/dhcp/dhcpd.conf
+
+    - name: Public network dhcpd docker container
+      docker_container:
+        name: dhcpd_public
+        image: 'woahbase/alpine-dhcp:aarch64'
+        network_mode: host
+        state: started
+        recreate: yes
+        restart_policy: unless-stopped
+        env:
+            INTERFACES: eth-public
+        volumes:
+            - /home/ubuntu/dhcpd-public.conf:/etc/dhcp/dhcpd.conf            
+
+    - name: Storage network dhcpd docker container
+      docker_container:
+        name: dhcpd_storage
+        image: 'woahbase/alpine-dhcp:aarch64'
+        network_mode: host
+        state: started
+        recreate: yes
+        restart_policy: unless-stopped
+        env:
+            INTERFACES: eth-storage
+        volumes:
+            - /home/ubuntu/dhcpd-storage.conf:/etc/dhcp/dhcpd.conf            
