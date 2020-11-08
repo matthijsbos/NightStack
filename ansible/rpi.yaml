@@ -53,3 +53,9 @@
     - name: Install docker-py
       pip: 
         name: docker
+    
+    - name: enable docker service
+      service:
+        name: docker
+        state: started
+        enabled: yes
