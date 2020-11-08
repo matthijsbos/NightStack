@@ -1,0 +1,61 @@
+---
+- hosts: rpi-01
+  become: yes
+  tasks: 
+    # https://ahelpme.com/linux/ubuntu/save-iptables-rules-over-reboots-on-ubuntu-16-and-ubuntu-18-persistent-iptables-rules/
+    - name: Install required packages
+      apt:
+        name: "{{ item }}"
+        state: latest 
+        cache_valid_time: 3600 #seconds
+      loop:
+        - netfilter-persistent
+        - iptables-persistent
+
+    - name: ensure netfilter-persistent service is enabled
+      service:
+        name: netfilter-persistent
+        state: started
+        enabled: yes      
+
+    - sysctl:
+        name: net.ipv4.ip_forward
+        value: '1'
+        sysctl_set: yes
+
+    - iptables:
+        table: 'nat'
+        action: 'append'
+        chain: 'POSTROUTING'
+        out_interface: 'eth-wan'
+        jump: 'MASQUERADE'
+    
+    - iptables:
+        action: 'append'
+        chain: 'FORWARD'
+        in_interface: 'eth-wan'
+        out_interface: '{{ item }}'
+        match: 'state'
+        ctstate:
+            - 'ESTABLISHED'
+            - 'RELATED'
+        jump: 'ACCEPT'
+      loop:
+        - eth-public
+        - eth0
+        - eth-storage
+    
+    - iptables:
+        action: 'append'
+        chain: 'FORWARD'
+        jump: 'ACCEPT'
+        in_interface: '{{ item }}'
+        out_interface: 'eth-wan'
+      loop:
+        - eth-public
+        - eth0
+        - eth-storage    
+
+    - name: persist current netfilter/iptables state
+      command: netfilter-persistent save
+    
