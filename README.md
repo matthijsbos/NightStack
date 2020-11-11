@@ -130,13 +130,13 @@ LED10 = cable 2, lead 8 === brown ========<< <<==== GPIO26 =====| 37 | 38 |
 
 ### Temperature Sensors
 
-| Model   | 1Wire Address      | Location                                       |
-|---------|--------------------|------------------------------------------------|
-| DS18B20 | `286016E937190143` | intake (h:top d:front w:right)                 |
-| DS18B20 | `284CA0DF3719011A` | intake (h:center d:front w:right)              |
-| DS18B20 | `2804D8B33719011F` | intake (h:bottom d:front w:center)             |
-| DS18B20 | `2885A016A8013C17` | exhaust left (h: center: d: back: w: left)     |
-| DS18B20 | `283A3816A8013CBD` | exhaust right (h: center: d: back: w: right)   |
+| Model   | 1Wire Address        | Location                                       |
+|---------|----------------------|------------------------------------------------|
+| DS18B20 | `28 6016E9371901 43` | intake (h:top d:front w:right)                 |
+| DS18B20 | `28 4CA0DF371901 1A` | intake (h:center d:front w:right)              |
+| DS18B20 | `28 04D8B3371901 1F` | intake (h:bottom d:front w:center)             |
+| DS18B20 | `28 85A016A8013C 17` | exhaust left (h: center: d: back: w: left)     |
+| DS18B20 | `28 3A3816A8013C BD` | exhaust right (h: center: d: back: w: right)   |
 
 ## Software
 
