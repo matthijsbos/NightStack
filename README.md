@@ -150,7 +150,7 @@ LED10 = cable 2, lead 8 === brown ========<< <<==== GPIO26 =====| 37 | 38 |
 | SRV-05 | Ubuntu       | [Server 20.04.1 LTS AMD64](https://releases.ubuntu.com/20.04.1/ubuntu-20.04.1-live-server-amd64.iso)                                              |
 | SRV-06 | Ubuntu       | [Server 20.04.1 LTS AMD64](https://releases.ubuntu.com/20.04.1/ubuntu-20.04.1-live-server-amd64.iso)                                              |
 | RPI-01 | Ubuntu       | [Server 20.04.1 LTS Arm64 Raspberry Pi](https://cdimage.ubuntu.com/releases/20.04.1/release/ubuntu-20.04.1-preinstalled-server-arm64+raspi.img.xz)|
-| AP-01  | OpenWrt      | TODO                                                                                                                                              |
+| AP-01  | OpenWrt      | [microuter-N300 V3.102](https://docs.gl-inet.com/en/3/release_notes/microuter-n300/)                                                              |
 
 ## Network
 
