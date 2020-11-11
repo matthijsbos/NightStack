@@ -155,34 +155,34 @@ LED10 = cable 2, lead 8 === brown ========<< <<==== GPIO26 =====| 37 | 38 |
 ## Network
 
 ### Layer 1 - Physical
-| SW-01 Interface | Node        | Interface   |
-|-----------------|-------------|-------------|
-| 1               | SRV-01      | Onboard LAN |
-| 2               | SRV-02      | Onboard LAN |
-| 3               | SRV-03      | Onboard LAN |
-| 4               | SRV-04      | Onboard LAN |
-| 5               | SRV-05      | Onboard LAN |
-| 6               | SRV-06      | Onboard LAN |
-| 7               | RPI-01      | Onboard LAN |
-| 8               | AP-01       | Onboard LAN |
-| 9               | Front Panel | STOR        |
-| 10              | Front Panel | MAN         |
-| 11              | Front Panel | PUB2        |
-| 12              | Front Panel | PUB3        |
-| 13              | SRV-01      | USB LAN     |
-| 14              | SRV-02      | USB LAN     |
-| 15              | SRV-03      | USB LAN     |
-| 16              | SRV-04      | USB LAN     |
-| 17              | SRV-05      | USB LAN     |
-| 18              | SRV-06      | USB LAN     |
-| 19              | Unused      | Unused      |
-| 20              | Unused      | Unused      |
-| 21              | Unused      | Unused      |
-| 22              | Unused      | Unused      |
-| 23              | Front Panel | PUB1        |
-| 24              | Unused      | Unused      |
-| 25              | Front Panel | WAN         |
-| 26              | Unused      | Unused      |
+| SW-01 Interface | Node            | Interface      |
+|-----------------|-----------------|----------------|
+| 1               | SRV-01          | Onboard LAN    |
+| 2               | SRV-02          | Onboard LAN    |
+| 3               | SRV-03          | Onboard LAN    |
+| 4               | SRV-04          | Onboard LAN    |
+| 5               | SRV-05          | Onboard LAN    |
+| 6               | SRV-06          | Onboard LAN    |
+| 7               | RPI-01          | Onboard LAN    |
+| 8               | AP-01           | Onboard LAN    |
+| 9               | Front Panel     | STOR           |
+| 10              | Front Panel     | MAN            |
+| 11              | Front Panel     | PUB2           |
+| 12              | Front Panel     | PUB3           |
+| 13              | SRV-01          | USB LAN        |
+| 14              | SRV-02          | USB LAN        |
+| 15              | SRV-03          | USB LAN        |
+| 16              | SRV-04          | USB LAN        |
+| 17              | SRV-05          | USB LAN        |
+| 18              | SRV-06          | USB LAN        |
+| 19              | Unused          | Unused         |
+| 20              | Unused          | Unused         |
+| 21              | Front Panel USB | USB LAN STOR   |
+| 22              | Front Panel USB | USB LAN MAN    |
+| 23              | Front Panel     | PUB1           |
+| 24              | Front Panel USB | USB LAN PUBLIC |
+| 25              | Front Panel     | WAN            |
+| 26              | Unused          | Unused         |
 
 ![](https://cdn-reichelt.de/bilder/web/xxl_ws/E910/LINKSYS_LGS326_02.png)
 
