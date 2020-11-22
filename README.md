@@ -177,12 +177,12 @@ LED10 = cable 2, lead 8 === brown ========<< <<==== GPIO26 =====| 37 | 38 |
 | 18              | SRV-06          | USB LAN        |
 | 19              | Unused          | Unused         |
 | 20              | Unused          | Unused         |
-| 21              | Front Panel USB | USB LAN STOR   |
-| 22              | Front Panel USB | USB LAN MAN    |
+| 21              | Front Panel     | USB-ETH1       |
+| 22              | Front Panel     | USB-ETH2       |
 | 23              | Front Panel     | PUB1           |
-| 24              | Front Panel USB | USB LAN PUBLIC |
+| 24              | Front Panel     | USB-ETH3       |
 | 25              | Front Panel     | WAN            |
-| 26              | Unused          | Unused         |
+| 26              | Front Panel     | USB-ETH4       |
 
 ![](https://cdn-reichelt.de/bilder/web/xxl_ws/E910/LINKSYS_LGS326_02.png)
 
@@ -199,23 +199,33 @@ LED10 = cable 2, lead 8 === brown ========<< <<==== GPIO26 =====| 37 | 38 |
 | Tenant             |   1000+n | n tenant networks |
 
 ### Layer 2 - Media Access
-| Node   | Interface   | MAC Address       | WAN (VLAN 10) | Public (VLAN 20) | Management (VLAN 30) | Storage (VLAN 40) | Tenant (VLAN 1000+n) |
-|--------|-------------|-------------------|---------------|------------------|----------------------|-------------------|----------------------|
-| SRV-01 | Onboard LAN | B8:88:E3:E0:98:9D | no            | yes              | yes                  | no                | yes                  |
-| SRV-01 | USB LAN     | 00:E0:4C:6B:6B:6A | no            | no               | no                   | yes               | no                   |
-| SRV-02 | Onboard LAN | E0:DB:55:E1:CD:98 | no            | no               | yes                  | no                | yes                  |
-| SRV-02 | USB LAN     | 00:E0:4C:6B:6F:5D | no            | no               | no                   | yes               | no                   |
-| SRV-03 | Onboard LAN | B8:CA:3A:D3:2C:3B | no            | no               | yes                  | no                | yes                  |
-| SRV-03 | USB LAN     | 00:E0:4C:6B:6E:A1 | no            | no               | no                   | yes               | no                   |
-| SRV-04 | Onboard LAN | F0:1F:AF:22:3A:55 | no            | no               | yes                  | no                | yes                  |
-| SRV-04 | USB LAN     | 00:E0:4C:6B:6A:4E | no            | no               | no                   | yes               | no                   |
-| SRV-05 | Onboard LAN | F0:1F:AF:2F:2F:9E | no            | no               | yes                  | no                | yes                  |
-| SRV-05 | USB LAN     | 00:E0:4C:6B:6F:D9 | no            | no               | no                   | yes               | no                   |
-| SRV-06 | Onboard LAN | D4:BE:D9:87:B8:23 | no            | no               | yes                  | no                | yes                  |
-| SRV-06 | USB LAN     | 00:E0:4C:6B:6E:BA | no            | no               | no                   | yes               | no                   |
-| RPI-01 | Onboard LAN | B8:27:EB:49:B0:4C | yes           | yes              | yes                  | yes               | no                   |
-| SW-01  | Management  | 14:91:82:EC:8E:17 | no            | no               | yes                  | no                | no                   |
-| AP-01  | Onboard LAN | 94:83:C4:04:18:29 | no            | no               | yes                  | yes               | no                   |
+| Node        | Interface   | MAC Address       | WAN (VLAN 10) | Public (VLAN 20) | Management (VLAN 30) | Storage (VLAN 40) | Tenant (VLAN 1000+n) |
+|-------------|-------------|-------------------|---------------|------------------|----------------------|-------------------|----------------------|
+| SRV-01      | Onboard LAN | B8:88:E3:E0:98:9D |Forbidden      | Tagged           | Untagged             | Forbidden         | Tagged               |
+| SRV-01      | USB LAN     | 00:E0:4C:6B:6B:6A | Forbidden     | Forbidden        | Forbidden            | Untagged          | Forbidden            |
+| SRV-02      | Onboard LAN | E0:DB:55:E1:CD:98 | Forbidden     | Forbidden        | Untagged             | Forbidden         | Tagged               |
+| SRV-02      | USB LAN     | 00:E0:4C:6B:6F:5D | Forbidden     | Forbidden        | Forbidden            | Untagged          | Forbidden            |
+| SRV-03      | Onboard LAN | B8:CA:3A:D3:2C:3B | Forbidden     | Forbidden        | Untagged             | Forbidden         | Tagged               |
+| SRV-03      | USB LAN     | 00:E0:4C:6B:6E:A1 | Forbidden     | Forbidden        | Forbidden            | Untagged          | Forbidden            |
+| SRV-04      | Onboard LAN | F0:1F:AF:22:3A:55 | Forbidden     | Forbidden        | Untagged             | Forbidden         | Tagged               |
+| SRV-04      | USB LAN     | 00:E0:4C:6B:6A:4E | Forbidden     | Forbidden        | Forbidden            | Untagged          | Forbidden            |
+| SRV-05      | Onboard LAN | F0:1F:AF:2F:2F:9E | Forbidden     | Forbidden        | Untagged             | Forbidden         | Tagged               |
+| SRV-05      | USB LAN     | 00:E0:4C:6B:6F:D9 | Forbidden     | Forbidden        | Forbidden            | Untagged          | Forbidden            |
+| SRV-06      | Onboard LAN | D4:BE:D9:87:B8:23 | Forbidden     | Forbidden        | Untagged             | Forbidden         | Tagged               |
+| SRV-06      | USB LAN     | 00:E0:4C:6B:6E:BA | Forbidden     | Forbidden        | Forbidden            | Untagged          | Forbidden            |
+| RPI-01      | Onboard LAN | B8:27:EB:49:B0:4C | Tagged        | Tagged           | Untagged             | Tagged            | Forbidden            |
+| SW-01       | Management  | 14:91:82:EC:8E:17 | Forbidden     | Forbidden        | Untagged             | Forbidden         | Forbidden            |
+| AP-01       | Onboard LAN | 94:83:C4:04:18:29 | Forbidden     | Forbidden        | Untagged             | Tagged            | Forbidden            |
+| Front Panel | STOR        | N.a.              | Forbidden     | Forbidden        | Forbidden            | Untagged          | Forbidden            |
+| Front Panel | MAN         | N.a.              | Forbidden     | Forbidden        | Untagged             | Forbidden         | Forbidden            |
+| Front Panel | PUB1        | N.a.              | Forbidden     | Untagged         | Forbidden            | Forbidden         | Forbidden            |
+| Front Panel | PUB2        | N.a.              | Forbidden     | Untagged         | Forbidden            | Forbidden         | Forbidden            |
+| Front Panel | PUB3        | N.a.              | Forbidden     | Untagged         | Forbidden            | Forbidden         | Forbidden            |
+| Front Panel | WAN         | N.a.              | Untagged      | Forbidden        | Forbidden            | Forbidden         | Forbidden            |
+| Front Panel | USB-ETH1    | 00:0B:05:0E:33:12 | Forbidden     | Forbidden        | Forbidden            | Untagged          | Forbidden            |
+| Front Panel | USB-ETH2    | 00:0B:09:15:00:22 | Forbidden     | Forbidden        | Untagged             | Forbidden         | Forbidden            |
+| Front Panel | USB-ETH3    | 00:0B:05:0E:33:13 | Forbidden     | Untagged         | Forbidden            | Forbidden         | Forbidden            |
+| Front Panel | USB-ETH4    | 00:0B:05:0E:36:09 | Forbidden     | Forbidden        | Forbidden            | Forbidden         | Forbidden            |
 
 
 ### Layer 3 - IPv4 Subnets
@@ -229,7 +239,7 @@ LED10 = cable 2, lead 8 === brown ========<< <<==== GPIO26 =====| 37 | 38 |
 | Name                      | Address from |   Address to |
 |---------------------------|-------------:|-------------:|
 | Public - Static lease     |    10.88.0.1 |  10.88.0.254 |
-| Public - floating ips     |    10.88.1.1 |  10.88.1.254 |
+| Public - Floating IPs     |    10.88.1.1 |  10.88.1.254 |
 | Public - DHCP dynamic     |   10.88.15.1 | 10.88.15.254 |
 | Management - Static lease |   10.88.16.1 | 10.88.16.254 |
 | Management - DHCP dynamic |   10.88.31.1 | 10.88.31.254 |
