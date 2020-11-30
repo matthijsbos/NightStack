@@ -10,5 +10,15 @@
         "vscoss.vscode-ansible",
         "ms-azuretools.vscode-docker",
         "hediet.vscode-drawio"
-    ]
+    ],
+    "mounts": [
+        "source=${localWorkspaceFolder}/kolla-ansible/globals.yml,target=/etc/kolla/globals.yml,type=bind,consistency=cached",
+        "source=${localWorkspaceFolder}/kolla-ansible/passwords.yml,target=/etc/kolla/passwords.yml,type=bind,consistency=cached",
+        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+    ],
+    "containerEnv": {
+        "TZ": "Europe/Amsterdam"
+    },
+    "runArgs": ["--init"],
+
 }
