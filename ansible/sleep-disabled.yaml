@@ -1,0 +1,5 @@
+---
+- hosts: compute-nodes
+  become: true
+  tasks:
+      - command: "systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target"

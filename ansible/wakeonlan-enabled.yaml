@@ -1,0 +1,22 @@
+---
+- hosts: compute-nodes
+  become: true
+  tasks:
+    - copy:
+        content: |
+          [Unit]
+          Description=Configure Wake On LAN
+
+          [Service]
+          Type=oneshot
+          ExecStart=/sbin/ethtool -s wol g
+
+          [Install]
+          WantedBy=basic.target
+        dest: etc/systemd/system/wol.service
+    - service:
+          systemd:
+          name: wol
+          daemon_reload: yes
+          enabled: yes
+          state: start

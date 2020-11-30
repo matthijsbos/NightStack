@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: true
+  tasks:
+      - name: add ssh public key
+        authorized_key:
+            manage_dir: true
+            state: present
+            user: "{{ ansible_user }}"
+            key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDX9UTEo9SOg2/dD30Llk0i4daTgGkMhUX8xWfqsdMhDsxd+IDmvSFV5w2KmfUr6b5tQK62z/cYNNbjwWE5ZMPBUMf4GsNmPyhwV0TWLKAE+P6vF4Z8oM72IjN8LRQaIK46YhqMTix+wBLEOqaK/hmldSLkA8s7Dft71LkguGghKAe9MqhzU5OtL8pLOvUdzN0u7+RObj6VFlvC3cycOwoKK8+dcP6y4lcWmr6JzLzn0O/bUL02DOhFdJZcbkJ1oC+K/2iaJ+MXXfjTa9J1xEx6LbT3enRLXwycMdVZWs7c/RfoA4mNbfF+7L+Ml2erwIlHCpelzj4Ntu7xMlWUibed
+

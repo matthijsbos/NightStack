@@ -10,6 +10,7 @@
             option broadcast-address 10.88.16.0;
             option routers 10.88.16.100;
             option domain-name "management.nightstack.matthijsbos.nl";
+            option domain-name-servers 8.8.8.8, 8.8.4.4;
 
             subnet 10.88.16.0 netmask 255.255.240.0 {
                 range 10.88.31.1 10.88.31.254;
@@ -17,6 +18,16 @@
                 host sw-01 {
                     hardware ethernet 14:91:82:ec:8e:17;
                     fixed-address 10.88.16.101;
+                }
+
+                host srv-01 {
+                    hardware ethernet b8:88:e3:e0:98:9d;
+                    fixed-address 10.88.16.1;
+                }
+
+                host srv-02 {
+                    hardware ethernet e0:db:55:e1:cd:98;
+                    fixed-address 10.88.16.2;
                 }
             }
 
@@ -31,9 +42,20 @@
             option broadcast-address 10.88.0.0;
             option routers 10.88.0.100;
             option domain-name "public.nightstack.matthijsbos.nl";
+            option domain-name-servers 8.8.8.8, 8.8.4.4;
 
             subnet 10.88.0.0 netmask 255.255.240.0 {
                 range 10.88.15.1 10.88.15.254;
+
+                host srv-01 {
+                    hardware ethernet b8:88:e3:e0:98:9d;
+                    fixed-address 10.88.0.1;
+                }
+
+                host srv-02 {
+                    hardware ethernet e0:db:55:e1:cd:98;
+                    fixed-address 10.88.0.2;
+                }                
             }
 
         dest: /home/ubuntu/dhcpd-public.conf
@@ -47,9 +69,20 @@
             option broadcast-address 10.88.32.0;
             option routers 10.88.32.100;
             option domain-name "storage.nightstack.matthijsbos.nl";
+            option domain-name-servers 8.8.8.8, 8.8.4.4;
 
             subnet 10.88.32.0 netmask 255.255.240.0 {
                 range 10.88.47.1 10.88.47.254;
+
+                host srv-01 {
+                    hardware ethernet b8:88:e3:e0:98:9d;
+                    fixed-address 10.88.32.1;
+                }
+
+                host srv-02 {
+                    hardware ethernet e0:db:55:e1:cd:98;
+                    fixed-address 10.88.32.2;
+                }                
             }
 
         dest: /home/ubuntu/dhcpd-storage.conf

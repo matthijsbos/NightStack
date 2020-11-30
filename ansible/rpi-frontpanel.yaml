@@ -1,0 +1,17 @@
+---
+    - hosts: rpi-01
+      tasks:             
+        - name: Frontpanel container instance
+          docker_container:
+            name: frontpanel
+            image: 'matthijsbos/nightstack-frontpanel:latest'
+            state: started
+            recreate: yes
+            restart_policy: unless-stopped
+            pull: yes
+            devices:
+                - /dev/gpiomem
+            # privileged: yes
+            env:
+                GPIOZERO_PIN_FACTORY: rpigpio
+    
